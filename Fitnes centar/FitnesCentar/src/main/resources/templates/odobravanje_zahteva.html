@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <script>
+$(document).ready(function(){
+  $("tbody").click(function(){
+    $(this).hide();
+  });
+});
+</script>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="odobravanje_zahteva.css">
+    <title>Odobravanje zahteva</title>
+</head>
+<body>
+<ul>
+  <li><a href="index.html">Pocetna</a></li>
+  <li><a href="registracija_clana.html">Registracija clana</a></li>
+  <li><a href="registracija_trenera.html">Registracija trenera</a></li>
+  <li><a href="login_korisnika.html">Prijavi se</a></li>
+  <li><a href="/h2">Baza</a></li>
+</ul>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Ime</th>
+    <th>Prezime</th>
+    <th>Potvrdi trenera</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr  th:each="trener : ${listaTrenera}">
+    <td th:text="${trener.id}">Id</td>
+    <td th:text="${trener.ime}">Ime</td>
+    <td th:text="${trener.prezime}">Prezime</td>
+    <td>
+      <a th:href="@{'/izmeni/' + ${trener.id}}">Potvrdi</a>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+</body>
+</html>

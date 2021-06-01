@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link rel="stylesheet" href="registracija_clana.css">
+    <meta charset="UTF-8">
+    <title>Registracija clana</title>
+</head>
+<body>
+<ul>
+    <li><a href="index.html">Pocetna</a></li>
+    <li><a href="registracija_clana.html">Registracija clana</a></li>
+    <li><a href="registracija_trenera.html">Registracija trenera</a></li>
+    <li><a href="login_korisnika.html">Prijavi se</a></li>
+    <li><a href="/h2">Baza</a></li>
+</ul>
+<div class="registracija">
+
+    <h1>Registracija Clana</h1>
+
+    <form name="registracija_clana" th:action="@{/registracija_clana}" method="post" th:object="${clan}">
+
+        <p>
+            <label for="ime">Ime:</label>
+            <br />
+            <input type="text" name="ime" id="ime"  placeholder="Unesite ime..." th:field="*{ime}" required>
+        </p>
+
+        <p>
+            <label for="ime">Korisnicko ime:</label>
+            <br />
+            <input type="text" name="korisnicko_ime" id="korisnicko_ime"  placeholder="Unesite korisnicko ime..." th:field="*{korisnicko_ime}" required>
+        </p>
+        <p>
+            <label for="ime">Lozinka:</label>
+            <br />
+            <input type="password" name="lozinka" id="lozinka"  placeholder="Unesite lozinku..." th:field="*{lozinka}" required>
+        </p>
+        <p>
+            <label for="prezime">Prezime:</label>
+            <br />
+            <input type="text" name="prezime" id="prezime" placeholder="Unesite prezime..." th:field="*{prezime}" required>
+        </p>
+
+        <p>
+            <label for="telefon">Telefon:</label>
+            <br />
+            <input type="text" name="telefon" id="telefon"  placeholder="Unesite kontakt telefon..." th:field="*{kontakt_telefon}" required>
+        </p>
+
+        <p>
+            <label for="email">Email:</label>
+            <br />
+            <input type="email" name="email" id="email" placeholder="Unesite email adresu..."th:field="*{email}" required>
+        </p>
+
+        <p>
+            <label for="datum_rodjenja">Datum rodjenja:</label>
+            <br />
+            <input type="date" name="datum_rodjenja" id="datum_rodjenja" th:field="*{datum_rodjenja}" required>
+        </p>
+
+
+
+
+
+        <button type="submit" >Registracija</button>
+
+
+
+    </form>
+</div>
+</body>
+</html>

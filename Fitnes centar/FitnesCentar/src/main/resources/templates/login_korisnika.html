@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="login_korisnika.css">
+    <meta charset="UTF-8">
+    <title>Login_Korisnika</title>
+</head>
+<body>
+<ul>
+    <li><a href="index.html">Pocetna</a></li>
+    <li><a href="registracija_clana.html">Registracija clana</a></li>
+    <li><a href="registracija_trenera.html">Registracija trenera</a></li>
+    <li><a href="login_korisnika.html">Prijavi se</a></li>
+    <li><a href="/h2">Baza</a></li>
+</ul>
+<div class="login">
+
+    <h1>Login korisnika</h1>
+
+    <form name="logIn_clana" th:action="@{/prijava_clana}" method="post" th:object="${korisnik}">
+
+        <p>
+            <label for="korisnicko_ime">Korisnicko ime:</label>
+            <br />
+            <input type="text" name="korisnicko_ime" id="korisnicko_ime" placeholder="Unesite korisnicko ime..." th:field="*{korisnickoIme}" required>
+        </p>
+
+        <p>
+            <label for="lozinka">Lozinka:</label>
+            <br />
+            <input type="password" name="lozinka" id="lozinka" placeholder="Unesite lozinku..." th:field="*{lozinka}" required>
+        </p>
+
+        <button type="submit" >Prijavi se</button>
+
+    </form>
+</div>
+</body>
+</html>
