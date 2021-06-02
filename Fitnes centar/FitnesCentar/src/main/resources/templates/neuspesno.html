@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="admin.css">
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <link rel="stylesheet" href="ulogovanTrener.css">
+    <title>Ulogovan trener</title>
 </head>
 <body>
 <ul>
@@ -13,9 +13,9 @@
     <li><a href="login_korisnika.html">Prijavi se</a></li>
     <li><a href="/h2">Baza</a></li>
 </ul>
-<a type="button" href="odobravanje_zahteva.html" class="btn">Zahtevi trenera</a>
 <div class="ulogovan">
-    <p>Ulogovani ste kao Admin</p>
+    <p>Ulogovani ste kao trener:</p>
+    <p th:text="${korisnickoIme}"></p>
 </div>
 </body>
 </html>

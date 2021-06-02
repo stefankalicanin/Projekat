@@ -2,6 +2,8 @@ package com.exampleAplikacija.FitnesCentar.controller;
 
 import com.exampleAplikacija.FitnesCentar.entity.Clan;
 
+import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInKorisnika;
+import com.exampleAplikacija.FitnesCentar.repository.LogInRepository;
 import com.exampleAplikacija.FitnesCentar.service.ClanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 public class RegistracijaController {
     private final ClanService clanService;
     @Autowired
+    public LogInRepository repo;
+    @Autowired
     public RegistracijaController(ClanService clanService) {
         this.clanService=clanService;
     }
@@ -22,17 +26,22 @@ public class RegistracijaController {
     @GetMapping("/registracija_clana.html")
     public String getRegistracijaClana(Model model)
     {
-
         model.addAttribute("clan",new Clan());
 
         return "registracija_clana";
     }
     @PostMapping("/registracija_clana")
-    public String procesRegistracijeClana(HttpServletRequest request,Clan clan)
+    public String procesRegistracijeClana(Clan clan)
     {
+
+        String ime=clan.getKorisnicko_ime();
+        String lozinka=clan.getLozinka();
+        String uloga="clan";
+        LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,"da");
+        korisnik.setUloga(uloga);
+        repo.save(korisnik);
         clan.setAktivan("da");
             clanService.kreiraj(clan);
-
             return "index";
     }
 }
