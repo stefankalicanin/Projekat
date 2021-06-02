@@ -6,17 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b719e5fa-8e0b-4853-9e39-163ec6a3231f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/LogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/RegistracijaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/RegistracijaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/AplikacijaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/AplikacijaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TrenerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TrenerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/DTO/LogInKorisnika.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/DTO/LogInKorisnika.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/LogInRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/LogInRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/Admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/Admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/service/TrenerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/service/TrenerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/login_korisnika.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/login_korisnika.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/odobravanje_zahteva.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/odobravanje_zahteva.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/registracija_clana.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/registracija_clana.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/registracija_trenera.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/registracija_trenera.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,6 +45,9 @@
     <property name="project.structure.side.proportion" value="0.7195282" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Korisnik\Desktop\Aplikacija\Projekat\Fitnes centar\FitnesCentar\src\main\resources\static" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Korisnik\Desktop\Aplikacija\Projekat\Fitnes centar\FitnesCentar\src\main\resources\static" />
     </key>

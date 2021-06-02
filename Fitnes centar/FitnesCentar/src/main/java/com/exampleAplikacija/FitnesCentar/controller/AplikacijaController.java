@@ -9,6 +9,11 @@ public class AplikacijaController {
     {
         return "index";
     }
+    @RequestMapping(value="/odobravanje_zahteva.html")
+    public String getOdobravanjeZahteva()
+    {
+        return "odobravanje_zahteva";
+    }
 
 
 

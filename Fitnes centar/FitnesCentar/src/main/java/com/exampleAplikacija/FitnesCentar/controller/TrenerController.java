@@ -1,6 +1,7 @@
 package com.exampleAplikacija.FitnesCentar.controller;
 
 import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInKorisnika;
+import com.exampleAplikacija.FitnesCentar.entity.DTO.TrenerDTO;
 import com.exampleAplikacija.FitnesCentar.entity.Trener;
 import com.exampleAplikacija.FitnesCentar.repository.LogInRepository;
 import com.exampleAplikacija.FitnesCentar.service.TrenerService;
@@ -43,15 +44,29 @@ public class TrenerController {
        trenerService.kreiraj(trener);
         return "index";
     }
-    @GetMapping("/odobravanje_zahteva.html")
-    public String viewHomePage(Model model) {
-        List<Trener> listaTrenera = trenerService.sviTreneri();
-        model.addAttribute("listaTrenera", listaTrenera);
+    @GetMapping(value="/sviTreneri",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TrenerDTO>> getTreneri() {
+        // Pozivanjem metode servisa dobavljamo sve zaposlene
+        List<Trener> listaTrenera = this.trenerService.sviTreneri();
 
-        return "odobravanje_zahteva";
+        // Kreiramo listu DTO objekata koju ćemo vratiti u odgovoru na zahtev
+        List<TrenerDTO> trenerDTOS = new ArrayList<>();
+
+        for (Trener trener : listaTrenera) {
+            // Kreiramo EmployeeDTO za svakog zaposlenog, kojeg je vratila metoda findAll()
+            // i ubacujemo ga u listu employeeDTOS
+            TrenerDTO trenerDTO = new TrenerDTO(trener.getId(),trener.getIme(),trener.getPrezime()
+                  );
+            trenerDTOS.add(trenerDTO);
+        }
+
+        // Vraćamo odgovor 200 OK, a kroz body odgovora šaljemo podatke o pronađenim zaposlenima
+        return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
     }
-    @RequestMapping("/izmeni/{id}")
-    public String potvrdaTrenera(@PathVariable(name="id")int id,Model model) {
+
+    @PostMapping("/izmeni/{id}")
+    public ResponseEntity<Void> potvrdiTrenera(@PathVariable Long id)
+    {
        Trener trener=trenerService.getId(id);
        trener.setAktivan("da");
         String ime=trener.getKorisnicko_ime();
@@ -62,7 +77,7 @@ public class TrenerController {
         korisnik.setUloga(uloga);
         repo.save(korisnik);
        trenerService.kreiraj(trener);
-        return "odobravanje_zahteva";
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 

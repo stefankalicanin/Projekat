@@ -18,10 +18,10 @@ public class TrenerService {
 
         trenerRepository.save(trener);
     }
-   public List<Trener> sviTreneri()
-   {
-       return trenerRepository.findAll();
-   }
+    public List<Trener> sviTreneri() {
+        List<Trener> treneri = this.trenerRepository.findAll();
+        return treneri;
+    }
    public Trener getId(long id)
    {
        return trenerRepository.findById(id).get();
