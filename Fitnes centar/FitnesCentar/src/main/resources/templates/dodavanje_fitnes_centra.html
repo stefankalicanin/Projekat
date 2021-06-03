@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dodavanje fitnes centra</title>
+  <link rel="stylesheet" href="dodavanje_fitnes_centra.css" />
+  <script src="jquery.min.js"></script>
+  <script src="jquery.validate.min.js"></script>
+  <script src="dodavanje_fitnes_centra.js"></script>
+</head>
+
+<body>
+<ul>
+  <li><a href="index.html">Pocetna</a></li>
+  <li><a href="registracija_clana.html">Registracija clana</a></li>
+  <li><a href="registracija_trenera.html">Registracija trenera</a></li>
+  <li><a href="login_korisnika.html">Prijavi se</a></li>
+  <li><a href="/h2">Baza</a></li>
+</ul>
+<form id="dodajFitnesCentar">
+  <p>
+    <label for="naziv">Naziv:</label>
+    <br />
+    <input type="text" name="naziv" id="naziv"  placeholder="Unesite naziv..."  required>
+  </p>
+  <p>
+    <label for="adresa">Adresa:</label>
+    <br />
+    <input type="text" name="adresa" id="adresa"  placeholder="Unesite adresu..."  required>
+  </p>
+  <p>
+    <label for="broj_telefona_centrale">Broj telefona centrale:</label>
+    <br />
+    <input type="text" name="broj_telefona_centrale" id="broj_telefona_centrale"  placeholder="Unesite broj..."  required>
+  </p>
+  <p>
+    <label for="email">Email:</label>
+    <br />
+    <input type="text" name="email" id="email"  placeholder="Unesite email..."  required>
+  </p>
+  <input type="submit" value="Dodaj">
+</form>
+</body>
+
+</html>

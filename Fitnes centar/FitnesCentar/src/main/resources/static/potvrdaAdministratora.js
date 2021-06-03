@@ -9,7 +9,7 @@ $(document).ready(function () {
 
             for (let trener of response) {
 
-                let row = "<tr>";
+                let row = "<tr id=id"+trener.id+">";
                 row += "<td>" + trener.ime + "</td>";
                 row += "<td>" + trener.prezime + "</td>";
                  let btn = "<button class='potvrda'   data-id=" + trener.id + ">Potvrdi</button>";
@@ -27,7 +27,9 @@ $(document).ready(function () {
 });
 $(document).on('click', '.potvrda', function () {
 
+
  let trenerId = this.dataset.id;
+  $('#id'+trenerId).remove();
 
     $.ajax({
         type: "POST",

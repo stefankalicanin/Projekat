@@ -46,21 +46,20 @@ public class TrenerController {
     }
     @GetMapping(value="/sviTreneri",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TrenerDTO>> getTreneri() {
-        // Pozivanjem metode servisa dobavljamo sve zaposlene
+
         List<Trener> listaTrenera = this.trenerService.sviTreneri();
 
-        // Kreiramo listu DTO objekata koju ćemo vratiti u odgovoru na zahtev
+
         List<TrenerDTO> trenerDTOS = new ArrayList<>();
 
         for (Trener trener : listaTrenera) {
-            // Kreiramo EmployeeDTO za svakog zaposlenog, kojeg je vratila metoda findAll()
-            // i ubacujemo ga u listu employeeDTOS
+
             TrenerDTO trenerDTO = new TrenerDTO(trener.getId(),trener.getIme(),trener.getPrezime()
                   );
             trenerDTOS.add(trenerDTO);
         }
 
-        // Vraćamo odgovor 200 OK, a kroz body odgovora šaljemo podatke o pronađenim zaposlenima
+
         return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
     }
 

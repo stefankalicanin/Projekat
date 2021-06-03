@@ -14,6 +14,16 @@ public class AplikacijaController {
     {
         return "odobravanje_zahteva";
     }
+    @RequestMapping(value="/dodavanje_fitnes_centra.html")
+    public String getDodavanjeFitnesCentra()
+    {
+        return "dodavanje_fitnes_centra";
+    }
+    @RequestMapping(value="/Admin.html")
+    public String getAdminStranica()
+    {
+        return "Admin";
+    }
 
 
 
