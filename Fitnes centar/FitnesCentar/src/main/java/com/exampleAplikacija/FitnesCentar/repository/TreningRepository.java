@@ -1,6 +1,7 @@
 package com.exampleAplikacija.FitnesCentar.repository;
 
 import com.exampleAplikacija.FitnesCentar.entity.Trening;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -17,5 +18,6 @@ public interface TreningRepository extends JpaRepository<Trening,Long> {
     public List<Trening> pretraziPoTrajanju(String kljucnaRec);
     @Query("SELECT t FROM Trening t WHERE t.cena=?1")
     public List<Trening> pretraziPoCeni(String kljucnaRec);
+
 
 }

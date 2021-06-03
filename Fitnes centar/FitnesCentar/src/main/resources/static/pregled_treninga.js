@@ -1,3 +1,33 @@
+$(document).ready(function () {
+
+
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/sviTreninzi",
+        dataType: "json",
+        success: function (response) {
+            console.log("SUCCESS:\n", response);
+
+            for (let trening of response) {
+                              let row = "<tr>";
+                              row += "<td>" + trening.naziv + "</td>";
+                              row += "<td>" + trening.opis + "</td>";
+                             row += "<td>" + trening.tip_treninga + "</td>";
+                             row += "<td>" + trening.trajanje + "</td>";
+                             row += "<td>" + trening.cena + "</td>";
+                              row += "</tr>";
+                              $('#trening').append(row);
+                          }
+
+
+        },
+        error: function (response) {
+            console.log("ERROR:\n", response);
+        }
+
+    });
+});
+
 $(document).on("submit","#pretraziPoNazivu", function (event) {
   event.preventDefault();
      let kljucnaRec = $("#naziv").val();
@@ -35,7 +65,8 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
               success: function (response) {
                   console.log("SUCCESS:\n", response);
                   for (let trening of response) {
-                      let row = "<tr>";
+
+                       let row = "<tr>";
                       row += "<td>" + trening.naziv + "</td>";
                       row += "<td>" + trening.opis + "</td>";
                      row += "<td>" + trening.tip_treninga + "</td>";
@@ -44,6 +75,8 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                       row += "</tr>";
                       $('#trening').append(row);
                   }
+
+
               },
               error: function (response) {
                   console.log("ERROR:\n", response);
@@ -70,6 +103,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                        row += "</tr>";
                        $('#trening').append(row);
                    }
+
                },
                error: function (response) {
                    console.log("ERROR:\n", response);
@@ -96,6 +130,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                        row += "</tr>";
                        $('#trening').append(row);
                    }
+
                },
                error: function (response) {
                    console.log("ERROR:\n", response);
@@ -122,9 +157,125 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                               row += "</tr>";
                               $('#trening').append(row);
                           }
+
                       },
                       error: function (response) {
                           console.log("ERROR:\n", response);
                       }
                   });
               });
+      $(document).on('click', '.sNaziv', function () {
+          $.ajax({
+                             type: "GET",
+                             url: "http://localhost:8080/sortiraniPoNazivu",
+                             dataType: "json",
+                             success: function (response) {
+                                 console.log("SUCCESS:\n", response);
+                                 for (let trening of response) {
+                                     let row = "<tr>";
+                                     row += "<td>" + trening.naziv + "</td>";
+                                     row += "<td>" + trening.opis + "</td>";
+                                    row += "<td>" + trening.tip_treninga + "</td>";
+                                    row += "<td>" + trening.trajanje + "</td>";
+                                    row += "<td>" + trening.cena + "</td>";
+                                     row += "</tr>";
+                                     $('#trening').append(row);
+                                 }
+                             },
+                             error: function (response) {
+                                 console.log("ERROR:\n", response);
+                             }
+                         });
+                     });
+    $(document).on('click', '.sOpis', function () {
+             $.ajax({
+                                type: "GET",
+                                url: "http://localhost:8080/sortiraniPoOpisu",
+                                dataType: "json",
+                                success: function (response) {
+                                    console.log("SUCCESS:\n", response);
+                                    for (let trening of response) {
+                                        let row = "<tr>";
+                                        row += "<td>" + trening.naziv + "</td>";
+                                        row += "<td>" + trening.opis + "</td>";
+                                       row += "<td>" + trening.tip_treninga + "</td>";
+                                       row += "<td>" + trening.trajanje + "</td>";
+                                       row += "<td>" + trening.cena + "</td>";
+                                        row += "</tr>";
+                                        $('#trening').append(row);
+                                    }
+                                },
+                                error: function (response) {
+                                    console.log("ERROR:\n", response);
+                                }
+                            });
+                        });
+     $(document).on('click', '.sTip', function () {
+              $.ajax({
+                                 type: "GET",
+                                 url: "http://localhost:8080/sortiraniPoTipu",
+                                 dataType: "json",
+                                 success: function (response) {
+                                     console.log("SUCCESS:\n", response);
+                                     for (let trening of response) {
+                                         let row = "<tr>";
+                                         row += "<td>" + trening.naziv + "</td>";
+                                         row += "<td>" + trening.opis + "</td>";
+                                        row += "<td>" + trening.tip_treninga + "</td>";
+                                        row += "<td>" + trening.trajanje + "</td>";
+                                        row += "<td>" + trening.cena + "</td>";
+                                         row += "</tr>";
+                                         $('#trening').append(row);
+                                     }
+                                 },
+                                 error: function (response) {
+                                     console.log("ERROR:\n", response);
+                                 }
+                             });
+                         });
+      $(document).on('click', '.sTrajanje', function () {
+               $.ajax({
+                                  type: "GET",
+                                  url: "http://localhost:8080/sortiraniPoTrajanju",
+                                  dataType: "json",
+                                  success: function (response) {
+                                      console.log("SUCCESS:\n", response);
+                                      for (let trening of response) {
+                                          let row = "<tr>";
+                                          row += "<td>" + trening.naziv + "</td>";
+                                          row += "<td>" + trening.opis + "</td>";
+                                         row += "<td>" + trening.tip_treninga + "</td>";
+                                         row += "<td>" + trening.trajanje + "</td>";
+                                         row += "<td>" + trening.cena + "</td>";
+                                          row += "</tr>";
+                                          $('#trening').append(row);
+                                      }
+                                  },
+                                  error: function (response) {
+                                      console.log("ERROR:\n", response);
+                                  }
+                              });
+                          });
+     $(document).on('click', '.sCena', function () {
+              $.ajax({
+                                 type: "GET",
+                                 url: "http://localhost:8080/sortiraniPoCeni",
+                                 dataType: "json",
+                                 success: function (response) {
+                                     console.log("SUCCESS:\n", response);
+                                     for (let trening of response) {
+                                         let row = "<tr>";
+                                         row += "<td>" + trening.naziv + "</td>";
+                                         row += "<td>" + trening.opis + "</td>";
+                                        row += "<td>" + trening.tip_treninga + "</td>";
+                                        row += "<td>" + trening.trajanje + "</td>";
+                                        row += "<td>" + trening.cena + "</td>";
+                                         row += "</tr>";
+                                         $('#trening').append(row);
+                                     }
+                                 },
+                                 error: function (response) {
+                                     console.log("ERROR:\n", response);
+                                 }
+                             });
+                         });

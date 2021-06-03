@@ -41,17 +41,17 @@ public class LogInController {
        LogInKorisnika korisnik=logInService.potvrdaPrijave(korisnickoIme,lozinka);
        if(korisnik==null||korisnik.getAktivan().equals("ne"))
        {
-           return "index";
+           return "greska";
        }
         if(korisnik.getUloga().equals("clan"))
         {
             model.addAttribute("korisnickoIme",korisnik.getKorisnickoIme());
-            return "uspesno";
+            return "ulogovanClan";
         }
         else
         {
             model.addAttribute("korisnickoIme",korisnik.getKorisnickoIme());
-            return "neuspesno";
+            return "ulogovanTrener";
         }
 
 

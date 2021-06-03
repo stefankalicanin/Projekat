@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Pregled treninga</title>
@@ -20,7 +20,7 @@
 <div class="pretraga">
 <form id="pretraziPoNazivu">
   <p>
-    <input id="naziv" type="text" /><br>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
   </p>
   <input type="submit" value="Pretrazi">
 </form>
@@ -49,14 +49,36 @@
   <input type="submit" value="Pretrazi">
 </form>
 </div>
+
+
 <table id="trening">
   <tr>
-    <th>Naziv</th>
-    <th>Opis</th>
-    <th>Tip treninga</th>
-    <th>Trajanje</th>
-    <th>Cena</th>
+    <th><button type="button" class="sNaziv">Naziv</button></th>
+    <th><button type="button" class="sOpis">Opis</button></th>
+    <th><button type="button" class="sTip">Tip treninga</button></th>
+    <th><button type="button" class="sTrajanje">Trajanje</button></th>
+    <th><button type="button" class="sCena">Cena</button></th>
   </tr>
 </table>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("trening");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 </body>
 </html>

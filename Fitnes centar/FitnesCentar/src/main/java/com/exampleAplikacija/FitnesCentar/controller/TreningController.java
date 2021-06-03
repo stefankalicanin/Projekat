@@ -29,6 +29,36 @@ public class TreningController {
     public TreningController(TreningService treningService) {
         this.treningService=treningService;
     }
+    @GetMapping(value="/sviTreninzi",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> sviTreninzi() {
+        List<Trening> listaTreninga = this.treningService.sviTreninzi();
+        return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
+    }
+    @GetMapping(value="/sortiraniPoNazivu",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> treninziSortiraniPoNazivu() {
+        List<Trening> listaTreninga = this.treningService.treninziSortiraniPoNazivu();
+        return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
+    }
+    @GetMapping(value="/sortiraniPoOpisu",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> treninziSortiraniPoOpisu() {
+        List<Trening> listaTreninga = this.treningService.treninziSortiraniPoOpisu();
+        return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
+    }
+    @GetMapping(value="/sortiraniPoTipu",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> treninziSortiraniPoTipu() {
+        List<Trening> listaTreninga = this.treningService.treninziSortiraniPoTipu();
+        return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
+    }
+    @GetMapping(value="/sortiraniPoTrajanju",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> treninziSortiraniPoTrajanju() {
+        List<Trening> listaTreninga = this.treningService.treninziSortiraniPoTrajanju();
+        return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
+    }
+    @GetMapping(value="/sortiraniPoCeni",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> treninziSortiraniPoCeni() {
+        List<Trening> listaTreninga = this.treningService.treninziSortiraniPoCeni();
+        return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
+    }
     @GetMapping(value = "/pretraziPoNazivu/{kljucnaRec}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Trening>> pretraziTreningPoNazivu(@PathVariable("kljucnaRec") String kljucnaRec) {
        List<Trening> trening=this.treningService.pretragaTreningaPoNazivu(kljucnaRec);

@@ -5,6 +5,7 @@ import com.exampleAplikacija.FitnesCentar.entity.Trening;
 import com.exampleAplikacija.FitnesCentar.repository.TrenerRepository;
 import com.exampleAplikacija.FitnesCentar.repository.TreningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,10 @@ public class TreningService {
     @Autowired
     public TreningService(TreningRepository treningRepository) {
         this.treningRepository=treningRepository;
+    }
+    public List<Trening> sviTreninzi() {
+        List<Trening> treninzi = this.treningRepository.findAll();
+        return treninzi;
     }
     public List<Trening> pretragaTreningaPoNazivu(String kljucnaRec) {
         if (kljucnaRec != null) {
@@ -45,6 +50,26 @@ public class TreningService {
             return treningRepository.pretraziPoCeni(kljucnaRec);
         }
         return treningRepository.findAll();
+    }
+   public List<Trening> treninziSortiraniPoNazivu()
+   {
+       return treningRepository.findAll(Sort.by(Sort.Direction.ASC, "naziv"));
+   }
+    public List<Trening> treninziSortiraniPoOpisu()
+    {
+        return treningRepository.findAll(Sort.by(Sort.Direction.ASC, "opis"));
+    }
+    public List<Trening> treninziSortiraniPoTipu()
+    {
+        return treningRepository.findAll(Sort.by(Sort.Direction.ASC, "tip_treninga"));
+    }
+    public List<Trening> treninziSortiraniPoTrajanju()
+    {
+        return treningRepository.findAll(Sort.by(Sort.Direction.ASC, "trajanje"));
+    }
+    public List<Trening> treninziSortiraniPoCeni()
+    {
+        return treningRepository.findAll(Sort.by(Sort.Direction.ASC, "cena"));
     }
     }
 
