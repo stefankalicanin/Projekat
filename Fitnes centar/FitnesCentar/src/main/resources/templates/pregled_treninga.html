@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pregled treninga</title>
+  <link rel="stylesheet" href="odobravanje_zahteva.css">
+  <script src="jquery.min.js"></script>
+  <script src="jquery.validate.min.js"></script>
+  <script src="pregled_treninga.js"></script>
+</head>
+<body>
+<ul>
+  <li><a href="index.html">Pocetna</a></li>
+  <li><a href="registracija_clana.html">Registracija clana</a></li>
+  <li><a href="registracija_trenera.html">Registracija trenera</a></li>
+  <li><a href="login_korisnika.html">Prijavi se</a></li>
+  <li><a href="/h2">Baza</a></li>
+</ul>
+<br><br>
+<div class="pretraga">
+<form id="pretraziPoNazivu">
+  <p>
+    <input id="naziv" type="text" /><br>
+  </p>
+  <input type="submit" value="Pretrazi">
+</form>
+<form id="pretraziPoOpisu">
+  <p>
+    <input id="opis" type="text" /><br>
+  </p>
+  <input type="submit" value="Pretrazi">
+</form>
+<form id="pretraziPoTipuTreninga">
+  <p>
+    <input id="tip_treninga" type="text" /><br>
+  </p>
+  <input type="submit" value="Pretrazi">
+</form>
+<form id="pretraziPoTrajanju">
+  <p>
+    <input id="trajanje" type="text" /><br>
+  </p>
+  <input type="submit" value="Pretrazi">
+</form>
+<form id="pretraziPoCeni">
+  <p>
+    <input id="cena" type="text" /><br>
+  </p>
+  <input type="submit" value="Pretrazi">
+</form>
+</div>
+<table id="trening">
+  <tr>
+    <th>Naziv</th>
+    <th>Opis</th>
+    <th>Tip treninga</th>
+    <th>Trajanje</th>
+    <th>Cena</th>
+  </tr>
+</table>
+</body>
+</html>

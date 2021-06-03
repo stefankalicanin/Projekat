@@ -24,6 +24,11 @@ public class AplikacijaController {
     {
         return "Admin";
     }
+    @RequestMapping(value="/pregled_treninga.html")
+    public String getPregledTreninga()
+    {
+        return "pregled_treninga";
+    }
 
 
 

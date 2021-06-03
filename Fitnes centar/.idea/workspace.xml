@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b719e5fa-8e0b-4853-9e39-163ec6a3231f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/AplikacijaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/AplikacijaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TrenerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TrenerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/potvrdaAdministratora.js" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/potvrdaAdministratora.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/Admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/Admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/TreningRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/TreningRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/odobravanje_zahteva.css" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/odobravanje_zahteva.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/pregledTreninga.css" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/pregledTreninga.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
