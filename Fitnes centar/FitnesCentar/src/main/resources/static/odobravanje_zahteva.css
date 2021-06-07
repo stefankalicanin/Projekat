@@ -129,3 +129,9 @@ input[type=submit] {
   margin: 4px 2px;
   cursor: pointer;
 }
+.prikazTabele
+{
+  margin:20px  100px;
+  height:50px;
+  width:100px;
+}

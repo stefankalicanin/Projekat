@@ -1,12 +1,16 @@
 package com.exampleAplikacija.FitnesCentar.entity.DTO;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 public class TrenerDTO implements Serializable {
-    private Long id;
-    private String ime;
-    private String prezime;
 
+    private Long id;
+
+    private String ime;
+
+    private String prezime;
+public TrenerDTO(){}
 
     public TrenerDTO(Long id,String ime, String prezime) {
         this.id=id;

@@ -14,8 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,12 +68,14 @@ public class TrenerController {
        trener.setAktivan("da");
         String ime=trener.getKorisnicko_ime();
         String lozinka=trener.getLozinka();
+        String prezime=trener.getPrezime();
         String uloga="trener";
         String aktivan=trener.getAktivan();
         LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,aktivan);
         korisnik.setUloga(uloga);
         repo.save(korisnik);
        trenerService.kreiraj(trener);
+       trenerService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

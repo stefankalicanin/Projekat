@@ -26,4 +26,7 @@ public class TrenerService {
    {
        return trenerRepository.findById(id).get();
    }
+    public void delete(long id) {
+        this.trenerRepository.deleteById(id);
+    }
 }

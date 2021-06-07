@@ -19,7 +19,11 @@ public class LogInService {
     }
     public LogInKorisnika potvrdaPrijave(String korisnickoIme,String lozinka)
     {
-       LogInKorisnika korisnik= repo.pronadjiKorisnika(korisnickoIme,lozinka);
+        LogInKorisnika korisnik= repo.pronadjiKorisnika(korisnickoIme,lozinka);
+        if(korisnik==null)
+        {
+            new Exception("Korisnik ne postoji");
+        }
        return korisnik;
     }
 

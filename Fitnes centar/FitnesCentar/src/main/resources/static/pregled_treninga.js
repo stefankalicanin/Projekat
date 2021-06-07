@@ -1,6 +1,20 @@
-$(document).ready(function () {
-
-
+$(document).on('click', '.prikazTabele', function ()
+{
+    $('#prikaz').hide();
+    $('#sortiranjePoNazivu').hide();
+      $('#sortiranjePoOpisu').hide();
+        $('#sortiranjePoTipu').hide();
+          $('#sortiranjePoTrajanju').hide();
+            $('#sortiranjePoCeni').hide();
+    $('#trening').show();
+});
+$(document).ready(function (){
+  $('#sortiranjePoNazivu').hide();
+       $('#sortiranjePoOpisu').hide();
+         $('#sortiranjePoTipu').hide();
+           $('#sortiranjePoTrajanju').hide();
+           $('#sortiranjePoCeni').hide();
+  $('#prikaz').hide();
     $.ajax({
         type: "GET",
         url: "http://localhost:8080/sviTreninzi",
@@ -31,6 +45,10 @@ $(document).ready(function () {
 $(document).on("submit","#pretraziPoNazivu", function (event) {
   event.preventDefault();
      let kljucnaRec = $("#naziv").val();
+     let treningDiv = $("#trening");
+         treningDiv.hide();
+         let prikazDiv = $("#prikaz");
+         prikazDiv.show();
 
    $.ajax({
            type: "GET",
@@ -39,14 +57,14 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
            success: function (response) {
                console.log("SUCCESS:\n", response);
                for (let trening of response) {
-                   let row = "<tr>";
+                    let row = "<tr>";
                    row += "<td>" + trening.naziv + "</td>";
                    row += "<td>" + trening.opis + "</td>";
                   row += "<td>" + trening.tip_treninga + "</td>";
                   row += "<td>" + trening.trajanje + "</td>";
                   row += "<td>" + trening.cena + "</td>";
                    row += "</tr>";
-                   $('#trening').append(row);
+                   $('#prikaz').append(row);
                }
            },
            error: function (response) {
@@ -57,6 +75,10 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
  $(document).on("submit","#pretraziPoOpisu", function (event) {
      event.preventDefault();
         let kljucnaRec = $("#opis").val();
+         let treningDiv = $("#trening");
+                 treningDiv.hide();
+                 let prikazDiv = $("#prikaz");
+                 prikazDiv.show();
 
       $.ajax({
               type: "GET",
@@ -73,7 +95,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                      row += "<td>" + trening.trajanje + "</td>";
                      row += "<td>" + trening.cena + "</td>";
                       row += "</tr>";
-                      $('#trening').append(row);
+                      $('#prikaz').append(row);
                   }
 
 
@@ -86,6 +108,10 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
  $(document).on("submit","#pretraziPoTipuTreninga", function (event) {
       event.preventDefault();
          let kljucnaRec = $("#tip_treninga").val();
+          let treningDiv = $("#trening");
+                  treningDiv.hide();
+                  let prikazDiv = $("#prikaz");
+                  prikazDiv.show();
 
        $.ajax({
                type: "GET",
@@ -101,7 +127,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                       row += "<td>" + trening.trajanje + "</td>";
                       row += "<td>" + trening.cena + "</td>";
                        row += "</tr>";
-                       $('#trening').append(row);
+                       $('#prikaz').append(row);
                    }
 
                },
@@ -113,6 +139,10 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
  $(document).on("submit","#pretraziPoTrajanju", function (event) {
       event.preventDefault();
          let kljucnaRec = $("#trajanje").val();
+          let treningDiv = $("#trening");
+                  treningDiv.hide();
+                  let prikazDiv = $("#prikaz");
+                  prikazDiv.show();
 
        $.ajax({
                type: "GET",
@@ -128,7 +158,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                       row += "<td>" + trening.trajanje + "</td>";
                       row += "<td>" + trening.cena + "</td>";
                        row += "</tr>";
-                       $('#trening').append(row);
+                       $('#prikaz').append(row);
                    }
 
                },
@@ -140,6 +170,10 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
        $(document).on("submit","#pretraziPoCeni", function (event) {
              event.preventDefault();
                 let kljucnaRec = $("#cena").val();
+                 let treningDiv = $("#trening");
+                         treningDiv.hide();
+                         let prikazDiv = $("#prikaz");
+                         prikazDiv.show();
 
               $.ajax({
                       type: "GET",
@@ -155,7 +189,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                              row += "<td>" + trening.trajanje + "</td>";
                              row += "<td>" + trening.cena + "</td>";
                               row += "</tr>";
-                              $('#trening').append(row);
+                              $('#prikaz').append(row);
                           }
 
                       },
@@ -165,6 +199,14 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                   });
               });
       $(document).on('click', '.sNaziv', function () {
+      let treningDiv = $("#trening");
+                               treningDiv.hide();
+      $('#sortiranjePoOpisu').hide();
+        $('#sortiranjePoTipu').hide();
+          $('#sortiranjePoTrajanju').hide();
+                     $('#sortiranjePoCeni').hide();
+                               let prikazDiv = $("#sortiranjePoNazivu");
+                               prikazDiv.show();
           $.ajax({
                              type: "GET",
                              url: "http://localhost:8080/sortiraniPoNazivu",
@@ -179,7 +221,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                                     row += "<td>" + trening.trajanje + "</td>";
                                     row += "<td>" + trening.cena + "</td>";
                                      row += "</tr>";
-                                     $('#trening').append(row);
+                                     $('#sortiranjePoNazivu').append(row);
                                  }
                              },
                              error: function (response) {
@@ -188,6 +230,15 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                          });
                      });
     $(document).on('click', '.sOpis', function () {
+    let treningDiv = $("#trening");
+                                   treningDiv.hide();
+$('#sortiranjePoNazivu').hide();
+
+         $('#sortiranjePoTipu').hide();
+           $('#sortiranjePoTrajanju').hide();
+           $('#sortiranjePoCeni').hide();
+                                   let prikazDiv = $("#sortiranjePoOpisu");
+                                   prikazDiv.show();
              $.ajax({
                                 type: "GET",
                                 url: "http://localhost:8080/sortiraniPoOpisu",
@@ -202,7 +253,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                                        row += "<td>" + trening.trajanje + "</td>";
                                        row += "<td>" + trening.cena + "</td>";
                                         row += "</tr>";
-                                        $('#trening').append(row);
+                                        $('#sortiranjePoOpisu').append(row);
                                     }
                                 },
                                 error: function (response) {
@@ -211,6 +262,15 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                             });
                         });
      $(document).on('click', '.sTip', function () {
+     let treningDiv = $("#trening");
+                                    treningDiv.hide();
+$('#sortiranjePoNazivu').hide();
+       $('#sortiranjePoOpisu').hide();
+         $('#sortiranjePoTipu').hide();
+
+           $('#sortiranjePoCeni').hide();
+                                    let prikazDiv = $("#sortiranjePoTrajanju");
+                                    prikazDiv.show();
               $.ajax({
                                  type: "GET",
                                  url: "http://localhost:8080/sortiraniPoTipu",
@@ -225,7 +285,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                                         row += "<td>" + trening.trajanje + "</td>";
                                         row += "<td>" + trening.cena + "</td>";
                                          row += "</tr>";
-                                         $('#trening').append(row);
+                                         $('#sortiranjePoTipu').append(row);
                                      }
                                  },
                                  error: function (response) {
@@ -234,6 +294,15 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                              });
                          });
       $(document).on('click', '.sTrajanje', function () {
+      let treningDiv = $("#trening");
+                                     treningDiv.hide();
+$('#sortiranjePoNazivu').hide();
+       $('#sortiranjePoOpisu').hide();
+         $('#sortiranjePoTipu').hide();
+
+           $('#sortiranjePoCeni').hide();
+                                     let prikazDiv = $("#sortiranjePoTrajanju");
+                                     prikazDiv.show();
                $.ajax({
                                   type: "GET",
                                   url: "http://localhost:8080/sortiraniPoTrajanju",
@@ -248,7 +317,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                                          row += "<td>" + trening.trajanje + "</td>";
                                          row += "<td>" + trening.cena + "</td>";
                                           row += "</tr>";
-                                          $('#trening').append(row);
+                                          $('#sortiranjePoTrajanju').append(row);
                                       }
                                   },
                                   error: function (response) {
@@ -257,6 +326,15 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                               });
                           });
      $(document).on('click', '.sCena', function () {
+     let treningDiv = $("#trening");
+                                    treningDiv.hide();
+$('#sortiranjePoNazivu').hide();
+       $('#sortiranjePoOpisu').hide();
+         $('#sortiranjePoTipu').hide();
+           $('#sortiranjePoTrajanju').hide();
+
+                                    let prikazDiv = $("#sortiranjePoCeni");
+                                    prikazDiv.show();
               $.ajax({
                                  type: "GET",
                                  url: "http://localhost:8080/sortiraniPoCeni",
@@ -271,7 +349,7 @@ $(document).on("submit","#pretraziPoNazivu", function (event) {
                                         row += "<td>" + trening.trajanje + "</td>";
                                         row += "<td>" + trening.cena + "</td>";
                                          row += "</tr>";
-                                         $('#trening').append(row);
+                                         $('#sortiranjePoCeni').append(row);
                                      }
                                  },
                                  error: function (response) {

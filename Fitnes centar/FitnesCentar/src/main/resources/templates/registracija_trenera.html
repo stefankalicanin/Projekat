@@ -15,6 +15,7 @@
   <li><a href="login_korisnika.html">Prijavi se</a></li>
   <li><a href="/h2">Baza</a></li>
 </ul>
+<div class="registracija">
 <h1>Registracija Trenera</h1>
 
 <form th:action="@{/registracija_trenera}" method="post" th:object="${trener}">
@@ -70,10 +71,12 @@
 
 
 </form>
+</div>
 <script>
 function myFunction() {
   alert("Sacekajte potvrdu administratora");
 }
 </script>
+
 </body>
 </html>

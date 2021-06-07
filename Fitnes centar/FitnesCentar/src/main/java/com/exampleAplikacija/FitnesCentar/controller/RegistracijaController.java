@@ -3,6 +3,7 @@ package com.exampleAplikacija.FitnesCentar.controller;
 import com.exampleAplikacija.FitnesCentar.entity.Clan;
 
 import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInKorisnika;
+import com.exampleAplikacija.FitnesCentar.repository.KorisnikRepository;
 import com.exampleAplikacija.FitnesCentar.repository.LogInRepository;
 import com.exampleAplikacija.FitnesCentar.service.ClanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class RegistracijaController {
     private final ClanService clanService;
+    @Autowired
+    KorisnikRepository krepo;
     @Autowired
     public LogInRepository repo;
     @Autowired

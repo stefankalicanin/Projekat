@@ -50,10 +50,35 @@ li.dropdown {
 }
 .ulogovan
 {
-  margin:20px;
-padding: 10px;
-  height: 100px;
-  width:160px;
-  float:right;
+ border:3px solid black;
+     margin:20px;
+   padding: 10px;
+     height: 200px;
+     width:160px;
+     float:right;
+     background-color: #f1f1f1;
+}
+.btn
+{
   background-color: #f1f1f1;
+    border: 3px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+.btn1
+{
+  background-color: #f1f1f1;
+    border: 3px solid white;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 30px 16px;
+    cursor: pointer;
 }

@@ -1,6 +1,6 @@
 body
 {
-
+background-image: url('/images/pozadina.jpg');
 }
 ul {
   list-style-type: none;
@@ -51,6 +51,15 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.login
+{
+  padding: 10px 0px 20px 20px;
+   height:250px;
+   width:250px;
+   margin:50px 600px;
+   background-color: #eaeaea;
+   border:3px solid #797575;
 }
 
 

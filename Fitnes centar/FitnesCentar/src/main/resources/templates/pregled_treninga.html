@@ -20,7 +20,7 @@
 <div class="pretraga">
 <form id="pretraziPoNazivu">
   <p>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <input id="naziv" type="text" /><br>
   </p>
   <input type="submit" value="Pretrazi">
 </form>
@@ -50,7 +50,7 @@
 </form>
 </div>
 
-
+<button type="button" class="prikazTabele">Prikaz tabele</button>
 <table id="trening">
   <tr>
     <th><button type="button" class="sNaziv">Naziv</button></th>
@@ -60,25 +60,47 @@
     <th><button type="button" class="sCena">Cena</button></th>
   </tr>
 </table>
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("trening");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-</script>
+<table id="prikaz">
+  <th>Naziv</th>
+  <th>Opis</th>
+  <th>Tip treninga</th>
+  <th>Trajanje</th>
+  <th>Cena</th>
+</table>
+<table id="sortiranjePoNazivu">
+  <th>Naziv</th>
+  <th>Opis</th>
+  <th>Tip treninga</th>
+  <th>Trajanje</th>
+  <th>Cena</th>
+</table>
+<table id="sortiranjePoOpisu">
+  <th>Naziv</th>
+  <th>Opis</th>
+  <th>Tip treninga</th>
+  <th>Trajanje</th>
+  <th>Cena</th>
+</table>
+  <table id="sortiranjePoTipu">
+    <th>Naziv</th>
+    <th>Opis</th>
+    <th>Tip treninga</th>
+    <th>Trajanje</th>
+    <th>Cena</th>
+  </table>
+<table id="sortiranjePoTrajanju">
+  <th>Naziv</th>
+  <th>Opis</th>
+  <th>Tip treninga</th>
+  <th>Trajanje</th>
+  <th>Cena</th>
+</table>
+<table id="sortiranjePoCeni">
+  <th>Naziv</th>
+  <th>Opis</th>
+  <th>Tip treninga</th>
+  <th>Trajanje</th>
+  <th>Cena</th>
+</table>
 </body>
 </html>
