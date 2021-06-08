@@ -12,12 +12,11 @@
     <li><a href="registracija_trenera.html">Registracija trenera</a></li>
     <li><a href="login_korisnika.html">Prijavi se</a></li>
     <li><a href="/h2">Baza</a></li>
-</ul>
-<a type="button" href="pregled_treninga.html" class="btn">Zahtevi trenera</a>
-<div class="ulogovan">
-    <p>Ulogovani ste kao trener:</p>
-    <p th:text="${korisnickoIme}"></p>
     <a type="button" href="index.html" class="btn1">Odjavi se</a>
+</ul>
+<a type="button" href="pregled_treninga.html" class="btn">Pregled treninga</a>
+<div class="ulogovan">
+    <p>Ulogovani ste kao trener:</p><p th:text="${korisnickoIme}"></p>
 </div>
 </body>
 </html>

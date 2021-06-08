@@ -15,6 +15,7 @@ $(document).ready(function (){
            $('#sortiranjePoTrajanju').hide();
            $('#sortiranjePoCeni').hide();
   $('#prikaz').hide();
+  $('#trening').hide();
     $.ajax({
         type: "GET",
         url: "http://localhost:8080/sviTreninzi",

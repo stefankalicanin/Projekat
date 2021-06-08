@@ -1,3 +1,8 @@
+body
+{
+background-image: url('/images/pozadina.jpg');
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -47,4 +52,41 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.fitnesCentar
+{
+padding: 10px 0px 20px 20px;
+   height:365px;
+   width:350px;
+   margin:50px 600px;
+   background-color: #eaeaea;
+   border:3px solid #797575;
+}
+h1
+{
+  color:#333;
+
+}
+.btn1
+{
+  float:right;
+   background-color: #f1f1f1;
+    border: 0px solid black;
+    color: black;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 0px;
+    cursor: pointer;
+}
+p
+{
+color:#333;}
+.ulogovan
+{
+  border:2px solid black;
+  height: 50px;
+  background-color: #f1f1f1;
+  float:right;
 }
