@@ -41,7 +41,7 @@ public class LogInController {
        LogInKorisnika korisnik=logInService.potvrdaPrijave(korisnickoIme,lozinka);
        if(korisnik==null||korisnik.getAktivan().equals("ne"))
        {
-           return "index";
+           return "redirect:/login_korisnika.html";
        }
         if(korisnik.getUloga().equals("clan"))
         {

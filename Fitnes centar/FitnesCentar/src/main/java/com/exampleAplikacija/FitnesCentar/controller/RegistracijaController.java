@@ -45,6 +45,6 @@ public class RegistracijaController {
         repo.save(korisnik);
         clan.setAktivan("da");
             clanService.kreiraj(clan);
-            return "index";
+            return "redirect:/login_korisnika.html";
     }
 }
