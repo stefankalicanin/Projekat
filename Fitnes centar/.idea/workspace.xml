@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b719e5fa-8e0b-4853-9e39-163ec6a3231f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/LogInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/RegistracijaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/RegistracijaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/login_korisnika.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/login_korisnika.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TrenerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TrenerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -3,6 +3,7 @@ package com.exampleAplikacija.FitnesCentar.controller;
 import com.exampleAplikacija.FitnesCentar.entity.Clan;
 
 import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInKorisnika;
+import com.exampleAplikacija.FitnesCentar.entity.Korisnik;
 import com.exampleAplikacija.FitnesCentar.repository.KorisnikRepository;
 import com.exampleAplikacija.FitnesCentar.repository.LogInRepository;
 import com.exampleAplikacija.FitnesCentar.service.ClanService;
@@ -17,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class RegistracijaController {
     private final ClanService clanService;
-    @Autowired
-    KorisnikRepository krepo;
     @Autowired
     public LogInRepository repo;
     @Autowired
@@ -36,7 +35,6 @@ public class RegistracijaController {
     @PostMapping("/registracija_clana")
     public String procesRegistracijeClana(Clan clan)
     {
-
         String ime=clan.getKorisnicko_ime();
         String lozinka=clan.getLozinka();
         String uloga="clan";

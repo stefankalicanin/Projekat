@@ -2,7 +2,9 @@ package com.exampleAplikacija.FitnesCentar.controller;
 
 import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInKorisnika;
 import com.exampleAplikacija.FitnesCentar.entity.DTO.TrenerDTO;
+import com.exampleAplikacija.FitnesCentar.entity.Korisnik;
 import com.exampleAplikacija.FitnesCentar.entity.Trener;
+import com.exampleAplikacija.FitnesCentar.repository.KorisnikRepository;
 import com.exampleAplikacija.FitnesCentar.repository.LogInRepository;
 import com.exampleAplikacija.FitnesCentar.service.TrenerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ public class TrenerController {
     private final TrenerService trenerService;
     @Autowired
     public LogInRepository repo;
+
 
     @Autowired
     public TrenerController(TrenerService trenerService) {
