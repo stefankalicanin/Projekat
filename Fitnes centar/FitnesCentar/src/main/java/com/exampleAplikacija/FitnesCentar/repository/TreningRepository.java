@@ -18,6 +18,8 @@ public interface TreningRepository extends JpaRepository<Trening,Long> {
     public List<Trening> pretraziPoTrajanju(String kljucnaRec);
     @Query("SELECT t FROM Trening t WHERE t.cena=?1")
     public List<Trening> pretraziPoCeni(String kljucnaRec);
+    @Query("SELECT t FROM Trening t WHERE t.naziv=?1 and t.opis=?2 and t.tip_treninga=?3 and t.trajanje=?4 and t.cena=?5 ")
+    public List<Trening> pretraziPoVise(String kljucnaRec1,String kljucnaRec2,String kljucnaRec3,String kljucnaRec4,String kljucnaRec5);
 
 
 }

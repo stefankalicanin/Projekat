@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pregled sala</title>
+  <link rel="stylesheet" href="pregled_sala.css">
+  <script src="jquery.min.js"></script>
+  <script src="jquery.validate.min.js"></script>
+  <script src="pregled_sala.js"></script>
+</head>
+<body>
+<ul>
+  <li><a href="index.html">Pocetna</a></li>
+  <li><a href="registracija_clana.html">Registracija clana</a></li>
+  <li><a href="registracija_trenera.html">Registracija trenera</a></li>
+  <li><a href="login_korisnika.html">Prijavi se</a></li>
+  <li><a href="/h2">Baza</a></li>
+  <a type="button" href="index.html" class="btn1">Odjavi se</a>
+</ul>
+<table id="fitnescentar">
+  <tr>
+    <th>Naziv</th>
+    <th>Adresa</th>
+    <th>Broj telefona centrale</th>
+    <th>Email</th>
+    <th>Dodaj salu</th>
+    <th>Izmeni salu</th>
+    <th>Obrisi salu</th>
+  </tr>
+</table>
+<form id="dodajSalu">
+  <p>
+    <label for="kapacitet">Kapacitet:</label>
+    <br />
+    <input type="text" name="kapacitet" id="kapacitet"  placeholder="Unesite kapacitet..."  required>
+  </p>
+  <p>
+    <label for="oznaka">Oznaka sale:</label>
+    <br />
+    <input type="text" name="oznaka" id="oznaka"  placeholder="Unesite oznaku sale..."  required>
+  </p>
+  <input type="submit" value="Dodaj salu">
+</form>
+<form id="izmeniSalu">
+  <p>
+    <label for="ikapacitet">Kapacitet:</label>
+    <br />
+    <input type="text" name="ikapacitet" id="ikapacitet"  placeholder="Unesite kapacitet..."  required>
+  </p>
+  <p>
+    <label for="ioznaka">Oznaka sale:</label>
+    <br />
+    <input type="text" name="ioznaka" id="ioznaka"  placeholder="Unesite oznaku sale..."  required>
+  </p>
+  <input type="submit" value="Izmeni salu">
+</form>
+<table id="salai">
+  <tr>
+    <th>Kapacitet</th>
+    <th>Oznaka sale</th>
+    <th>Izmeni</th>
+  </tr>
+</table>
+<table id="salao">
+  <tr>
+    <th>Kapacitet</th>
+    <th>Oznaka sale</th>
+    <th>Obrisi</th>
+  </tr>
+</table>
+</body>
+</html>

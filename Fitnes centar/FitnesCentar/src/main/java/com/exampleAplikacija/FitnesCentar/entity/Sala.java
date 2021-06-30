@@ -21,7 +21,28 @@ public class Sala implements Serializable {
             joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> termini=new HashSet<>();
+public Sala(){}
+    public Sala(Integer kapacitet, String oznaka_sale, FitnesCentar FF) {
+        this.kapacitet = kapacitet;
+        this.oznaka_sale = oznaka_sale;
+        this.FF = FF;
+    }
 
+    public FitnesCentar getFF() {
+        return FF;
+    }
+
+    public void setFF(FitnesCentar FF) {
+        this.FF = FF;
+    }
+
+    public Set<Termin> getTermini() {
+        return termini;
+    }
+
+    public void setTermini(Set<Termin> termini) {
+        this.termini = termini;
+    }
 
     public Integer getKapacitet() {
         return kapacitet;
@@ -45,5 +66,13 @@ public class Sala implements Serializable {
 
     public void setLista_treninga(Set<Termin> lista_treninga) {
         this.termini = lista_treninga;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

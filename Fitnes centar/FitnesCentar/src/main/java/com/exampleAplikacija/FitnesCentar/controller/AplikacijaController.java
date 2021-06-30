@@ -29,7 +29,16 @@ public class AplikacijaController {
     {
         return "pregled_treninga";
     }
-
+    @RequestMapping(value="/pregled_ff_centra.html")
+    public String getPregledFF()
+    {
+        return "pregled_ff_centra";
+    }
+    @RequestMapping(value="/pregled_sala.html")
+    public String getPregledFF1()
+    {
+        return "pregled_sala";
+    }
 
 
 }

@@ -6,6 +6,7 @@ import com.exampleAplikacija.FitnesCentar.entity.Korisnik;
 import com.exampleAplikacija.FitnesCentar.entity.Trener;
 import com.exampleAplikacija.FitnesCentar.repository.KorisnikRepository;
 import com.exampleAplikacija.FitnesCentar.repository.LogInRepository;
+import com.exampleAplikacija.FitnesCentar.repository.TrenerDtoRepository;
 import com.exampleAplikacija.FitnesCentar.service.TrenerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,8 @@ public class TrenerController {
     private final TrenerService trenerService;
     @Autowired
     public LogInRepository repo;
-
+    @Autowired
+    public TrenerDtoRepository trenerDtoRepository;
 
     @Autowired
     public TrenerController(TrenerService trenerService) {
@@ -63,6 +65,12 @@ public class TrenerController {
 
         return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
     }
+    @GetMapping(value="/sviTreneri1",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TrenerDTO>> getTreneri1() {
+
+        List<TrenerDTO> listaTrenera = this.trenerDtoRepository.findAll();
+        return new ResponseEntity<>(listaTrenera, HttpStatus.OK);
+    }
 
     @PostMapping("/izmeni/{id}")
     public ResponseEntity<Void> potvrdiTrenera(@PathVariable Long id)
@@ -75,12 +83,19 @@ public class TrenerController {
         String uloga="trener";
         String aktivan=trener.getAktivan();
         LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,aktivan);
+        TrenerDTO tD=new TrenerDTO(ime,prezime);
+        trenerDtoRepository.save(tD);
         korisnik.setUloga(uloga);
         repo.save(korisnik);
        trenerService.kreiraj(trener);
        trenerService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
+    @PostMapping("/izmeni1/{id}")
+    public ResponseEntity<Void> ukloniTrenera(@PathVariable Long id)
+    {
+        this.trenerDtoRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 
 }

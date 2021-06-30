@@ -2,13 +2,14 @@ package com.exampleAplikacija.FitnesCentar.entity.DTO;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+@Entity
 public class TrenerDTO implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column
     private String ime;
-
+    @Column
     private String prezime;
 public TrenerDTO(){}
 
@@ -16,6 +17,11 @@ public TrenerDTO(){}
         this.id=id;
         this.ime = ime;
         this.prezime = prezime;
+    }
+    public TrenerDTO(String ime,String prezime)
+    {
+        this.ime=ime;
+        this.prezime=prezime;
     }
 
     public Long getId() {

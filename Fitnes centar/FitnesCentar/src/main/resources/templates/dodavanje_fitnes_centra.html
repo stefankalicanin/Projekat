@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Dodavanje fitnes centra</title>
-  <link rel="stylesheet" href="dodavanje_fitnes_centra.css" />
+  <link rel="stylesheet" href="odobravanje_zahteva.css">
   <script src="jquery.min.js"></script>
   <script src="jquery.validate.min.js"></script>
-  <script src="dodavanje_fitnes_centra.js"></script>
+  <script src="potvrdaAdministratora.js"></script>
+  <title>Pregled fitnes centra</title>
 </head>
 
 <body>
@@ -48,6 +48,40 @@
   <input type="submit" value="Dodaj">
 </form>
 </div>
+<table id="ff">
+  <tr>
+    <th>Naziv</th>
+    <th>Adresa</th>
+    <th>Broj telefona centrale</th>
+    <th>Email</th>
+    <th>Izmeni</th>
+    <th>Obrisi</th>
+  </tr>
+</table>
+<h1>Izmena fitnes centra</h1>
+<form id="izmeniFitnesCentar" >
+  <p>
+    <label for="inaziv">Naziv:</label>
+    <br />
+    <input type="text" name="inaziv" id="inaziv"  placeholder="Unesite naziv..."  required>
+  </p>
+  <p>
+    <label for="iadresa">Adresa:</label>
+    <br />
+    <input type="text" name="iadresa" id="iadresa"  placeholder="Unesite adresu..."  required>
+  </p>
+  <p>
+    <label for="ibroj_telefona_centrale">Broj telefona centrale:</label>
+    <br />
+    <input type="text" name="ibroj_telefona_centrale" id="ibroj_telefona_centrale"  placeholder="Unesite broj..."  required>
+  </p>
+  <p>
+    <label for="iemail">Email:</label>
+    <br />
+    <input type="text" name="iemail" id="iemail"  placeholder="Unesite email..."  required>
+  </p>
+  <input type="submit" value="Izmeni">
+</form>
 </body>
 
 </html>

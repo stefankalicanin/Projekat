@@ -51,6 +51,12 @@ public class TreningService {
         }
         return treningRepository.findAll();
     }
+    public List<Trening> pretragaTreningaPoVise(String kljucnaRec1,String kljucnaRec2,String kljucnaRec3,String kljucnaRec4,String kljucnaREc5) {
+
+            return treningRepository.pretraziPoVise(kljucnaRec1,kljucnaRec2,kljucnaRec3,kljucnaRec4,kljucnaREc5);
+
+    }
+
    public List<Trening> treninziSortiraniPoNazivu()
    {
        return treningRepository.findAll(Sort.by(Sort.Direction.ASC, "naziv"));

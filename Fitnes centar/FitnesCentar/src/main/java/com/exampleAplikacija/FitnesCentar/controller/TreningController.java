@@ -89,9 +89,14 @@ public class TreningController {
     }
     @GetMapping(value = "/pretraziPoCeni/{kljucnaRec}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Trening>> pretraziTreningPoCeni(@PathVariable("kljucnaRec") String kljucnaRec) {
-        List<Trening> trening=this.treningService.pretragaTreningaPoCeni(kljucnaRec);
-
-
+        List<Trening> trening = this.treningService.pretragaTreningaPoCeni(kljucnaRec);
         return new ResponseEntity<>(trening, HttpStatus.OK);
     }
+    @GetMapping(value = "/pretraziVise/{kljucnaRec1}/{kljucnaRec2}/{kljucnaRec3}/{kljucnaRec4}/{kljucnaRec5}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> pretraziTreningPoVise(@PathVariable(required = false) String kljucnaRec1,@PathVariable(required = false) String kljucnaRec2,@PathVariable(required = false) String kljucnaRec3,@PathVariable(required = false) String kljucnaRec4,@PathVariable(required = false) String kljucnaRec5) {
+
+        List<Trening> trening = this.treningService.pretragaTreningaPoVise(kljucnaRec1,kljucnaRec2,kljucnaRec3,kljucnaRec4,kljucnaRec5);
+        return new ResponseEntity<>(trening, HttpStatus.OK);
+    }
+
 }

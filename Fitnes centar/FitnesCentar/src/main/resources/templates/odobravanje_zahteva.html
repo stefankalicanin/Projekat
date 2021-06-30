@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 
 <head>
@@ -31,6 +32,70 @@
         <th>Potvrdi</th>
       </tr>
     </table>
+<div class="registracija">
+  <h1>Registracija trenera</h1>
+
+  <form th:action="@{/automatska_registracija}" method="post" th:object="${trener}">
+
+    <p>
+      <label for="ime">Ime:</label>
+      <br />
+      <input type="text" name="ime" id="ime"  placeholder="Unesite ime..." th:field="*{ime}" required>
+    </p>
+
+    <p>
+      <label for="ime">Korisnicko ime:</label>
+      <br />
+      <input type="text" name="korisnicko_ime" id="korisnicko_ime"  placeholder="Unesite korisnicko ime..." th:field="*{korisnicko_ime}" required>
+    </p>
+    <p>
+      <label for="ime">Lozinka:</label>
+      <br />
+      <input type="password" name="lozinka" id="lozinka"  placeholder="Unesite lozinku..." th:field="*{lozinka}" onchange='proveraLozinke();' required>
+    </p>
+    <p>
+      <label for="potvrdaLozinke">Potvrda lozinke:</label>
+      <br />
+      <input type="password" name="potvrdaLozinke" id="potvrdaLozinke"  placeholder="Unesite lozinku..." onchange='proveraLozinke();' required>
+    </p>
+    <p>
+      <label for="prezime">Prezime:</label>
+      <br />
+      <input type="text" name="prezime" id="prezime" placeholder="Unesite prezime..." th:field="*{prezime}" required>
+    </p>
+
+    <p>
+      <label for="telefon">Telefon:</label>
+      <br />
+      <input type="text" name="telefon" id="telefon"  placeholder="Unesite kontakt telefon..." th:field="*{kontakt_telefon}" required>
+    </p>
+
+    <p>
+      <label for="email">Email:</label>
+      <br />
+      <input type="email" name="email" id="email" placeholder="Unesite email adresu..."th:field="*{email}" required>
+    </p>
+
+    <p>
+      <label for="datum_rodjenja">Datum rodjenja:</label>
+      <br />
+      <input type="date" name="datum_rodjenja" id="datum_rodjenja" th:field="*{datum_rodjenja}" required>
+    </p>
+
+
+    <input type="submit" name="submit"  value="Registracija">
+
+
+
+  </form>
+</div>
+<table id="treneri1">
+  <tr>
+    <th>Ime</th>
+    <th>Prezime</th>
+    <th>Ukloni</th>
+  </tr>
+</table>
 </body>
 
 </html>

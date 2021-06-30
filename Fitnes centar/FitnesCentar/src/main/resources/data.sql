@@ -3,19 +3,9 @@ VALUES('FF1','Adresa','063477126','FF');
 
 
 
-INSERT INTO SALA(kapacitet,oznaka_sale,ff_id)
-VALUES('100','sala1',1);
-INSERT INTO SALA(kapacitet,oznaka_sale,ff_id)
-VALUES('15000','sala2',1);
-INSERT INTO SALA(kapacitet,oznaka_sale,ff_id)
-VALUES('17500','sala3',1);
 
-INSERT INTO TERMIN(broj_prijavljenih_clanova,raspored_termina,ff_id)
-VALUES('10','raspored1',1);
-INSERT INTO TERMIN(broj_prijavljenih_clanova,raspored_termina,ff_id)
-VALUES('1','raspored2',1);
-INSERT INTO TERMIN(broj_prijavljenih_clanova,raspored_termina,ff_id)
-VALUES('14','raspored3',1);
+
+
 
 INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
 VALUES('trening1','nemaopisa1','tezaktrening1','1500','100');
