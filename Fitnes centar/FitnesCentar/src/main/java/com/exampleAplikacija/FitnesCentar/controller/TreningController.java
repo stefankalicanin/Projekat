@@ -1,9 +1,10 @@
 package com.exampleAplikacija.FitnesCentar.controller;
 
+import com.exampleAplikacija.FitnesCentar.entity.*;
+import com.exampleAplikacija.FitnesCentar.entity.DTO.FCDTO;
 import com.exampleAplikacija.FitnesCentar.entity.DTO.TrenerDTO;
-import com.exampleAplikacija.FitnesCentar.entity.Trener;
-import com.exampleAplikacija.FitnesCentar.entity.Trening;
-import com.exampleAplikacija.FitnesCentar.repository.LogInRepository;
+import com.exampleAplikacija.FitnesCentar.entity.DTO.TreningDTO;
+import com.exampleAplikacija.FitnesCentar.repository.*;
 import com.exampleAplikacija.FitnesCentar.service.TrenerService;
 import com.exampleAplikacija.FitnesCentar.service.TreningService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class TreningController {
     private final TreningService treningService;
     @Autowired
     public LogInRepository repo;
-
+    @Autowired
+    public TreningRepository treningrepo;
+    @Autowired
+    public TerminRepository trepo;
+    @Autowired
+    public TrenerRepository trenerrepo;
+    @Autowired
+    public SalaRepository srepo;
     @Autowired
     public TreningController(TreningService treningService) {
         this.treningService=treningService;
@@ -52,11 +64,6 @@ public class TreningController {
     @GetMapping(value="/sortiraniPoTrajanju",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Trening>> treninziSortiraniPoTrajanju() {
         List<Trening> listaTreninga = this.treningService.treninziSortiraniPoTrajanju();
-        return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
-    }
-    @GetMapping(value="/sortiraniPoCeni",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Trening>> treninziSortiraniPoCeni() {
-        List<Trening> listaTreninga = this.treningService.treninziSortiraniPoCeni();
         return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
     }
     @GetMapping(value = "/pretraziPoNazivu/{kljucnaRec}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -87,16 +94,38 @@ public class TreningController {
 
         return new ResponseEntity<>(trening, HttpStatus.OK);
     }
-    @GetMapping(value = "/pretraziPoCeni/{kljucnaRec}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Trening>> pretraziTreningPoCeni(@PathVariable("kljucnaRec") String kljucnaRec) {
-        List<Trening> trening = this.treningService.pretragaTreningaPoCeni(kljucnaRec);
-        return new ResponseEntity<>(trening, HttpStatus.OK);
+    @PostMapping(value="/dodajTermin/{id}/{id1}",consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Termin> dodajTermin(@RequestBody TreningDTO td,@PathVariable Long id,@PathVariable Long id1) throws Exception {
+        Sala sala=this.srepo.getOne(id1);
+        Trening trening=this.treningService.get(td.getTrening_id());
+        Termin termin=new Termin(td.getRaspored_termina(),td.getBroj_prijavljenih_clanova(),td.getCena(),trening);
+        trepo.save(termin);
+        Trener trener=trenerrepo.getOne(id);
+        trening.getLista_trenera().add(trener);
+        trener.getLista_treninga().add(trening);
+        sala.getTermini().add(termin);
+        termin.getSale().add(sala);
+        this.srepo.save(sala);
+        this.treningrepo.save(trening);
+        return new ResponseEntity<>(termin, HttpStatus.CREATED);
     }
-    @GetMapping(value = "/pretraziVise/{kljucnaRec1}/{kljucnaRec2}/{kljucnaRec3}/{kljucnaRec4}/{kljucnaRec5}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Trening>> pretraziTreningPoVise(@PathVariable(required = false) String kljucnaRec1,@PathVariable(required = false) String kljucnaRec2,@PathVariable(required = false) String kljucnaRec3,@PathVariable(required = false) String kljucnaRec4,@PathVariable(required = false) String kljucnaRec5) {
+    @GetMapping(value = "/sviTerminiT/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<Termin>> sveSale(@PathVariable Long id) {
+        Trening trening=this.treningService.get(id);
+        Set<Termin> termini=new HashSet<>();
+       termini=trening.getRaspored_odrzavanja_treninga();
 
-        List<Trening> trening = this.treningService.pretragaTreningaPoVise(kljucnaRec1,kljucnaRec2,kljucnaRec3,kljucnaRec4,kljucnaRec5);
-        return new ResponseEntity<>(trening, HttpStatus.OK);
+        return new ResponseEntity<>(termini, HttpStatus.OK);
     }
-
+    @PostMapping("/izmeniTermin/{id}")
+    public ResponseEntity<Void> izmeniTermin(@RequestBody Termin termin,@PathVariable Long id)
+    {
+        Termin termin1=this.trepo.getOne(id);
+       termin1.setRaspored_termina(termin.getRaspored_termina());
+       termin1.setBroj_prijavljenih_clanova(termin.getBroj_prijavljenih_clanova());
+       termin1.setCena(termin.getCena());
+       trepo.save(termin1);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

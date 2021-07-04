@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="ulogovanTrener.css">
+    <script src="jquery.min.js"></script>
+    <script src="jquery.validate.min.js"></script>
+    <script src="trener1.js"></script>
     <title>Ulogovan trener</title>
 </head>
 <body>
@@ -16,7 +19,65 @@
 </ul>
 <a type="button" href="pregled_treninga.html" class="btn">Pregled treninga</a>
 <div class="ulogovan">
-    <p>Ulogovani ste kao trener:</p><p th:text="${korisnickoIme}"></p>
+    <p>Ulogovani ste kao trener:</p><p id="kiTrenera" th:text="${korisnickoIme}"></p><p id="idTrenera" th:text="${id}"></p>
 </div>
+<table id="ff">
+    <tr>
+        <th>Naziv</th>
+        <th>Adresa</th>
+        <th>Broj telefona centrale</th>
+        <th>Email</th>
+        <th>Izaberi</th>
+    </tr>
+</table>
+<table id="sala">
+    <tr>
+        <th>Kapacitet</th>
+        <th>Oznaka sale</th>
+        <th>Izmeni</th>
+    </tr>
+</table>
+<table id="prikaz">
+    <th>Naziv</th>
+    <th>Opis</th>
+    <th>Tip treninga</th>
+    <th>Trajanje</th>
+    <th>Dodaj termin</th>
+    <th>Izmeni termin</th>
+</table>
+
+<form id="dodajTermin">
+    <p>
+        <label for="cena">Cena:</label>
+        <br />
+        <input type="text" name="cena" id="cena"  placeholder="Unesite cenu..."  required>
+    </p>
+    <p>
+        <label for="raspored">Raspored:</label>
+        <br />
+        <input type="text" name="raspored" id="raspored"  placeholder="Unesite raspored..."  required>
+    </p>
+    <input type="submit" value="Dodaj">
+</form>
+
+<table id="tIzmeniTermin">
+    <th>Cena</th>
+    <th>Raspored</th>
+    <th>Izmeni</th>
+</table>
+<form id="izmeniTermin">
+    <p>
+        <label for="icena">Cena:</label>
+        <br />
+        <input type="text" name="icena" id="icena"  placeholder="Unesite cenu..."  required>
+    </p>
+    <p>
+        <label for="iraspored">Raspored:</label>
+        <br />
+        <input type="text" name="iraspored" id="iraspored"  placeholder="Unesite raspored..."  required>
+    </p>
+    <input type="submit"   value="Dodaj">
+</form>
+
 </body>
 </html>

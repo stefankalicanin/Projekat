@@ -45,17 +45,7 @@ public class TreningService {
         }
         return treningRepository.findAll();
     }
-    public List<Trening> pretragaTreningaPoCeni(String kljucnaRec) {
-        if (kljucnaRec != null) {
-            return treningRepository.pretraziPoCeni(kljucnaRec);
-        }
-        return treningRepository.findAll();
-    }
-    public List<Trening> pretragaTreningaPoVise(String kljucnaRec1,String kljucnaRec2,String kljucnaRec3,String kljucnaRec4,String kljucnaREc5) {
 
-            return treningRepository.pretraziPoVise(kljucnaRec1,kljucnaRec2,kljucnaRec3,kljucnaRec4,kljucnaREc5);
-
-    }
 
    public List<Trening> treninziSortiraniPoNazivu()
    {
@@ -73,9 +63,9 @@ public class TreningService {
     {
         return treningRepository.findAll(Sort.by(Sort.Direction.ASC, "trajanje"));
     }
-    public List<Trening> treninziSortiraniPoCeni()
+    public Trening get(long id)
     {
-        return treningRepository.findAll(Sort.by(Sort.Direction.ASC, "cena"));
+        return treningRepository.findById(id).get();
     }
     }
 

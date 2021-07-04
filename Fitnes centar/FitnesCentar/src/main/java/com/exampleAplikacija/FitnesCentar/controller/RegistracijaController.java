@@ -38,7 +38,7 @@ public class RegistracijaController {
         String ime=clan.getKorisnicko_ime();
         String lozinka=clan.getLozinka();
         String uloga="clan";
-        LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,"da");
+        LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,"clan","da");
         korisnik.setUloga(uloga);
         repo.save(korisnik);
         clan.setAktivan("da");

@@ -2,6 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="login_korisnika.css">
+    <script src="jquery.min.js"></script>
+    <script src="jquery.validate.min.js"></script>
+    <script src="trener1.js"></script>
     <meta charset="UTF-8">
     <title>Login_Korisnika</title>
 </head>
@@ -17,7 +20,7 @@
 
     <h1>Login korisnika</h1>
 
-    <form name="logIn_clana" th:action="@{/prijava_clana}" method="post" th:object="${korisnik}">
+    <form id="logIn_clana" th:action="@{/prijava_clana}" method="post" th:object="${korisnik}">
 
         <p>
             <label for="korisnicko_ime">Korisnicko ime:</label>

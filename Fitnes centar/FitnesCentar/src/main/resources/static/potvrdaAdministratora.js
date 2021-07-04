@@ -53,7 +53,7 @@ $(document).ready(function () {
 
             for (let trener of response) {
 
-                let row = "<tr id=id"+trener.id+">";
+                let row = "<tr id=idT"+trener.id+">";
                 row += "<td> " + trener.ime + "</td>";
                 row += "<td>" + trener.prezime + "</td>";
                  let btn = "<button class='ukloni'   data-id=" + trener.id + ">Ukloni</button>";
@@ -73,7 +73,7 @@ $(document).on('click', '.ukloni', function () {
 
 
  let trenerId = this.dataset.id;
-  $('#id'+trenerId).remove();
+
 
     $.ajax({
         type: "POST",

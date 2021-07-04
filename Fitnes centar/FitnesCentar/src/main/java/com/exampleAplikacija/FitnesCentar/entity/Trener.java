@@ -1,5 +1,7 @@
 package com.exampleAplikacija.FitnesCentar.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -25,13 +27,19 @@ public class Trener  implements Serializable {
     @Column
     private String datum_rodjenja;
     @Column
-    private Uloga uloga=Uloga.Trener;
+    private String uloga="trener";
     @Column
     private String aktivan="ne";
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private FitnesCentar FF;
+    @ManyToMany(mappedBy = "lista_trenera")
+    @JsonIgnore
+    private Set<Trening> lista_treninga = new HashSet<>();
     public Trener(){}
 
-    public Trener(Long id, String korisnicko_ime, String lozinka, String ime, String prezime, String kontakt_telefon, String email, String datum_rodjenja, Uloga uloga, String aktivan, FitnesCentar FF, Set<Trening> lista_treninga) {
-        this.id = id;
+    public Trener( String korisnicko_ime, String lozinka, String ime, String prezime, String kontakt_telefon, String email, String datum_rodjenja, String uloga, String aktivan, FitnesCentar FF, Set<Trening> lista_treninga) {
         this.korisnicko_ime = korisnicko_ime;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -43,6 +51,17 @@ public class Trener  implements Serializable {
         this.aktivan = aktivan;
         this.FF = FF;
         this.lista_treninga = lista_treninga;
+    }
+    public Trener( String korisnicko_ime, String lozinka, String ime, String prezime, String kontakt_telefon, String email, String datum_rodjenja, String uloga, String aktivan) {
+        this.korisnicko_ime = korisnicko_ime;
+        this.lozinka = lozinka;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.kontakt_telefon = kontakt_telefon;
+        this.email = email;
+        this.datum_rodjenja = datum_rodjenja;
+        this.uloga = uloga;
+        this.aktivan = aktivan;
     }
 
     public Long getId() {
@@ -109,11 +128,11 @@ public class Trener  implements Serializable {
         this.datum_rodjenja = datum_rodjenja;
     }
 
-    public Uloga getUloga() {
+    public String getUloga() {
         return uloga;
     }
 
-    public void setUloga(Uloga uloga) {
+    public void setUloga(String uloga) {
         this.uloga = uloga;
     }
 
@@ -135,10 +154,7 @@ public class Trener  implements Serializable {
 
 
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private FitnesCentar FF;
-    @ManyToMany(mappedBy = "lista_treninga")
-    private Set<Trening> lista_treninga = new HashSet<>();
+
 
 
     public Set<Trening> getLista_treninga() {

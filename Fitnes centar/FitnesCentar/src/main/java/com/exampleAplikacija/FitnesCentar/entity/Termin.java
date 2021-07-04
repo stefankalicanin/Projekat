@@ -1,5 +1,7 @@
 package com.exampleAplikacija.FitnesCentar.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -14,11 +16,24 @@ public class Termin implements Serializable {
 
     @Column
     private Integer broj_prijavljenih_clanova;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private FitnesCentar FF;
+    @Column
+    private String cena;
+
     @ManyToMany(mappedBy = "termini")
+    @JsonIgnore
     private Set<Sala> sale=new HashSet<>();
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Trening T;
+
+    public Termin(){}
+    public Termin( String raspored_termina, Integer broj_prijavljenih_clanova, String cena, Trening t) {
+        this.raspored_termina = raspored_termina;
+        this.broj_prijavljenih_clanova = broj_prijavljenih_clanova;
+        this.cena = cena;
+        T = t;
+    }
 
     public Long getId() {
         return id;
@@ -46,13 +61,7 @@ public class Termin implements Serializable {
         this.broj_prijavljenih_clanova = broj_prijavljenih_clanova;
     }
 
-    public FitnesCentar getFF() {
-        return FF;
-    }
 
-    public void setFF(FitnesCentar FF) {
-        this.FF = FF;
-    }
 
     public Set<Sala> getSale() {
         return sale;
@@ -60,5 +69,21 @@ public class Termin implements Serializable {
 
     public void setSale(Set<Sala> sale) {
         this.sale = sale;
+    }
+
+    public String getCena() {
+        return cena;
+    }
+
+    public void setCena(String cena) {
+        this.cena = cena;
+    }
+
+    public Trening getT() {
+        return T;
+    }
+
+    public void setT(Trening t) {
+        T = t;
     }
 }

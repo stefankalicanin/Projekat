@@ -39,6 +39,11 @@ public class AplikacijaController {
     {
         return "pregled_sala";
     }
+    @RequestMapping(value="/ulogovanTrener.html")
+    public String getUlogovanTrener()
+    {
+        return "ulogovanTrener";
+    }
 
 
 }

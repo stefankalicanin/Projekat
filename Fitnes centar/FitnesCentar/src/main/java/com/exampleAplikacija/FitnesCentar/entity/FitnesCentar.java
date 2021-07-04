@@ -37,12 +37,12 @@ public FitnesCentar(){}
     }
 
     @OneToMany(mappedBy = "FF", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<Trener> treneri=new HashSet<>();
     @OneToMany(mappedBy = "FF", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private Set<Sala> sale=new HashSet<>();
-    @OneToMany(mappedBy = "FF", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Termin> raspored_odrzavanja_treninga=new HashSet<>();
+
 
 
     public Long getId() {
@@ -100,11 +100,4 @@ public FitnesCentar(){}
         this.sale = sale;
     }
 
-    public Set<Termin> getRaspored_odrzavanja_treninga() {
-        return raspored_odrzavanja_treninga;
-    }
-
-    public void setRaspored_odrzavanja_treninga(Set<Termin> raspored_odrzavanja_treninga) {
-        this.raspored_odrzavanja_treninga = raspored_odrzavanja_treninga;
-    }
 }

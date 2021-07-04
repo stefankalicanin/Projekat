@@ -11,7 +11,6 @@ let idTabele1=$("#salao").hide();
             console.log("SUCCESS:\n", response);
 
             for (let ff of response) {
-
                 let row = "<tr>";
                 row += "<td>" + ff.naziv + "</td>";
                 row += "<td>" + ff.adresa + "</td>";
@@ -90,6 +89,7 @@ let id=this.dataset.id;
                 row += "<td>" + sala.oznaka_sale + "</td>";
                  let btn1 = "<button class='izmeni1'   data-id=" + sala.id+" data-kapacitet="+sala.kapacitet+" data-oznaka="+sala.oznaka_sale+">Izmeni salu</button>";
                                 row += "<td>" + btn1 + "</td>";
+
                 row += "</tr>";
 
                 $('#salai').append(row);
@@ -142,8 +142,7 @@ $(document).on("submit", "#izmeniSalu", function (event) {
 });
 $(document).on('click', '.obrisi', function ()
 {
-let idTabele=$("#salao").show();
-let idTabele1=$("#salai").hide();
+let idTabele=$("#salai").show();
 let id=this.dataset.id;
     $.ajax({
         type: "GET",
@@ -154,14 +153,15 @@ let id=this.dataset.id;
 
             for (let sala of response) {
 
-               let row = "<tr id=id"+sala.id+">";
+                let row = "<tr>";
                 row += "<td>" + sala.kapacitet + "</td>";
                 row += "<td>" + sala.oznaka_sale + "</td>";
-                 let btn1 = "<button class='obrisi1'   data-id=" + sala.id+">Obrisi</button>";
+                 let btn1 = "<button class='obrisi1'   data-id=" + sala.id+">Obrisi salu</button>";
                                 row += "<td>" + btn1 + "</td>";
+
                 row += "</tr>";
 
-                $('#salao').append(row);
+                $('#salai').append(row);
 
             }
         },
@@ -170,22 +170,23 @@ let id=this.dataset.id;
         }
     });
 });
-$(document).on('click', '.obrisi1', function () {
-
-
- let sId = this.dataset.id;
-  $('#id'+sId).remove();
-
+$(document).on('click', '.obrisi1', function ()
+{
+let idTabele=$("#salai").show();
+let id=this.dataset.id;
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/obrisiSalu/" + 1,
+        url: "http://localhost:8080/obrisiSalu/"+id,
         dataType: "json",
         success: function (response) {
+            console.log("SUCCESS:\n", response);
+
 
         },
         error: function (response) {
             console.log("ERROR:\n", response);
-
         }
     });
 });
+
+

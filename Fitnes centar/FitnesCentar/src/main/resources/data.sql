@@ -7,26 +7,13 @@ VALUES('FF1','Adresa','063477126','FF');
 
 
 
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening1','nemaopisa1','tezaktrening1','1500','100');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening2','nemaopisa2','tezaktrening2','1700','200');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening3','nemaopisa3','tezaktrening3','158500','300');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening4','nemaopisa4','tezaktrening4','201','300');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening5','nemaopisa5','tezaktrening5','0100','300');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening6','nemaopisa6','tezaktrening6','1010','300');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening7','nemaopisa7','tezaktrening7','0101','300');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening8','trening9','tezaktrening8','111','300');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening9','nemaopisa9','tezaktrening9','1111','300');
-INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje,cena)
-VALUES('trening10','nemaopisa10','tezaktrening10','410','300');
+INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje)
+VALUES('trening1','nemaopisa1','tezaktrening1','1500');
+INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje)
+VALUES('trening2','nemaopisa2','tezaktrening2','1700');
+INSERT INTO TRENING(naziv,opis,tip_treninga,trajanje)
+VALUES('trening3','nemaopisa3','tezaktrening3','158500');
+
 
 
 

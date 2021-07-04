@@ -44,6 +44,7 @@ public class AdminController {
     public ResponseEntity<Sala> dodajSalu(@RequestBody FCDTO ff) throws Exception {
        FitnesCentar fitnes=this.fitnesCentarService.getId(ff.getFf_id());
        Sala sala=new Sala(ff.getKapacitet(),ff.getOznaka(),fitnes);
+
        srepo.save(sala);
         return new ResponseEntity<>(sala, HttpStatus.CREATED);
     }
@@ -61,12 +62,11 @@ public class AdminController {
         String ime=trener.getKorisnicko_ime();
         String lozinka=trener.getLozinka();
         String uloga="trener";
-        LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,"da");
-        korisnik.setUloga(uloga);
-        repo.save(korisnik);
+        LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,"trener","da");
         trener.setAktivan("da");
-        TrenerDTO tD=new TrenerDTO(ime,prezime);
-        trenerDtoRepository.save(tD);
+        trepo.save(trener);
+
+
         return "redirect:/Admin.html";
     }
     @GetMapping(value="/sviFF",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -99,6 +99,12 @@ public class AdminController {
       sala1.setKapacitet(sala.getKapacitet());
       sala1.setOznaka_sale(sala.getOznaka_sale());
         srepo.save(sala1);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @PostMapping("/obrisiSalu/{id}")
+    public ResponseEntity<Void> obrisiSalu(@PathVariable Long id)
+    {
+       this.srepo.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

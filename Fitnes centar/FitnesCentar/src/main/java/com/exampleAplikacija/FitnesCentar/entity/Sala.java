@@ -1,6 +1,8 @@
 package com.exampleAplikacija.FitnesCentar.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -14,12 +16,14 @@ public class Sala implements Serializable {
     private Integer kapacitet;
     @Column
     private String oznaka_sale;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JsonIgnore
     private FitnesCentar FF;
     @ManyToMany
     @JoinTable(name = "sala_termin",
             joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
+    @JsonIgnore
     private Set<Termin> termini=new HashSet<>();
 public Sala(){}
     public Sala(Integer kapacitet, String oznaka_sale, FitnesCentar FF) {

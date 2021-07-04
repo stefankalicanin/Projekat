@@ -20,12 +20,11 @@ public class LogInKorisnika implements Serializable
   public LogInKorisnika(){}
 
 
-
-    public LogInKorisnika(String korisnickoIme, String lozinka,String aktivan) {
+    public LogInKorisnika(String korisnickoIme, String lozinka, String uloga, String aktivan) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
-        this.aktivan=aktivan;
-
+        this.uloga = uloga;
+        this.aktivan = aktivan;
     }
 
     public Long getId() {

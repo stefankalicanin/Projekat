@@ -50,6 +50,7 @@ public class LogInController {
         }
         else
         {
+            model.addAttribute("id",korisnik.getId());
             model.addAttribute("korisnickoIme",korisnik.getKorisnickoIme());
             return "ulogovanTrener";
         }
