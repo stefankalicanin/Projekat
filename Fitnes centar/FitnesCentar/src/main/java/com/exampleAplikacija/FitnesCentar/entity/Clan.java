@@ -1,5 +1,7 @@
 package com.exampleAplikacija.FitnesCentar.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -29,8 +31,10 @@ public class Clan  implements Serializable {
     @Column
     private String aktivan="ne";
     @ManyToMany(mappedBy = "odradjeni_treninzi")
+    @JsonIgnore
     private Set<Trening> lista_odradjenih_treninga=new HashSet<>();
     @ManyToMany(mappedBy = "prijavljeni_treninzi")
+    @JsonIgnore
     private Set<Trening> lista_prijavljenih_treninga=new HashSet<>();
     @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Ocena> ocena=new HashSet<>();

@@ -1,13 +1,11 @@
 package com.exampleAplikacija.FitnesCentar.controller;
 
 import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInKorisnika;
+import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInTrenera;
 import com.exampleAplikacija.FitnesCentar.entity.DTO.TrenerDTO;
 import com.exampleAplikacija.FitnesCentar.entity.FitnesCentar;
 import com.exampleAplikacija.FitnesCentar.entity.Trener;
-import com.exampleAplikacija.FitnesCentar.repository.FitnesCentarRepository;
-import com.exampleAplikacija.FitnesCentar.repository.LogInRepository;
-import com.exampleAplikacija.FitnesCentar.repository.TrenerDtoRepository;
-import com.exampleAplikacija.FitnesCentar.repository.TrenerRepository;
+import com.exampleAplikacija.FitnesCentar.repository.*;
 import com.exampleAplikacija.FitnesCentar.service.TrenerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +27,8 @@ public class TrenerController {
     private final TrenerService trenerService;
     @Autowired
     public LogInRepository repo;
+    @Autowired
+    public LogInTRepository repot;
     @Autowired
     public TrenerRepository trepo;
     @Autowired
@@ -75,8 +75,8 @@ public class TrenerController {
         String prezime=trener.getPrezime();
         String uloga="trener";
         String aktivan=trener.getAktivan();
-        LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,"trener","da");
-        repo.save(korisnik);
+        LogInTrenera korisnik=new LogInTrenera(ime,lozinka,"trener","da");
+        repot.save(korisnik);
         Trener noviTrener=new Trener(trener.getKorisnicko_ime(),trener.getLozinka(),trener.getIme(),trener.getPrezime(),trener.getKontakt_telefon(),trener.getEmail(),trener.getDatum_rodjenja(),"trener","da");
        trenerService.kreiraj(noviTrener);
         trenerDtoRepository.deleteById(id);

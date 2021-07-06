@@ -13,6 +13,13 @@ public class Ocena implements Serializable {
     private Clan clan;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trening trening;
+    public Ocena (){}
+
+    public Ocena(String ocena, Clan clan, Trening trening) {
+        this.ocena = ocena;
+        this.clan = clan;
+        this.trening = trening;
+    }
 
     public Long getId() {
         return id;

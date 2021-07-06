@@ -37,12 +37,14 @@ public class Trening {
     @JoinTable(name = "odradjentrening_clan",
             joinColumns = @JoinColumn(name = "treningodradjen_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"))
+    @JsonIgnore
     private Set<Clan> odradjeni_treninzi = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "prijavljentrening_clan",
             joinColumns = @JoinColumn(name = "treningprijavljen_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"))
+    @JsonIgnore
     private Set<Clan> prijavljeni_treninzi = new HashSet<>();
     @OneToMany(mappedBy = "trening", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Ocena> ocenjen_trening=new HashSet<>();

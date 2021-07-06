@@ -2,7 +2,9 @@ package com.exampleAplikacija.FitnesCentar.controller;
 
 import com.exampleAplikacija.FitnesCentar.entity.Clan;
 import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInKorisnika;
+import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInTrenera;
 import com.exampleAplikacija.FitnesCentar.repository.AdministratorRepository;
+import com.exampleAplikacija.FitnesCentar.repository.LogInTRepository;
 import com.exampleAplikacija.FitnesCentar.service.LogInService;
 import com.exampleAplikacija.FitnesCentar.service.TrenerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,8 @@ public class LogInController {
     public LogInController(LogInService logInService) {
         this.logInService=logInService;
     }
-
+    @Autowired
+    public LogInTRepository trepo;
 
     @GetMapping("/login_korisnika.html")
     public String getLogIn(Model model)
@@ -34,24 +37,28 @@ public class LogInController {
     @PostMapping("/prijava_clana")
     public String getPrijava(@Param("korisnickoIme") String korisnickoIme,@Param("lozinka") String lozinka,Model model)
     {
+        LogInKorisnika korisnik=logInService.potvrdaPrijave(korisnickoIme,lozinka);
+        LogInTrenera trener=trepo.pronadjiKorisnika(korisnickoIme,lozinka);
         if(korisnickoIme.equals("Stefan13")&&lozinka.equals("lozinka13"))
         {
             return "Admin";
         }
-       LogInKorisnika korisnik=logInService.potvrdaPrijave(korisnickoIme,lozinka);
-       if(korisnik==null||korisnik.getAktivan().equals("ne"))
+
+       else if(korisnik==null&&trener==null)
        {
            return "redirect:/login_korisnika.html";
        }
-        if(korisnik.getUloga().equals("clan"))
-        {
-            model.addAttribute("korisnickoIme",korisnik.getKorisnickoIme());
-            return "ulogovanClan";
-        }
-        else
+
+        else if(korisnik!=null)
         {
             model.addAttribute("id",korisnik.getId());
             model.addAttribute("korisnickoIme",korisnik.getKorisnickoIme());
+            return "ulogovanClan";
+        }
+       else
+        {
+            model.addAttribute("id",trener.getId());
+            model.addAttribute("korisnickoIme",trener.getKorisnickoIme());
             return "ulogovanTrener";
         }
 

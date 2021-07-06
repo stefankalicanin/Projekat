@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="ulogovanKorisnik.css">
+    <script src="jquery.min.js"></script>
+    <script src="jquery.validate.min.js"></script>
+    <script src="clan1.js"></script>
     <title>Ulogovan clan</title>
 </head>
 <body>
@@ -16,7 +19,34 @@
 </ul>
 <a type="button" href="pregled_treninga.html" class="btn">Pregled treninga</a>
 <div class="ulogovan">
-<p>Ulogovani ste kao clan:</p><p th:text="${korisnickoIme}"></p>
+    <p>Ulogovani ste kao clan:</p><p id="kiClana" th:text="${korisnickoIme}"></p><p id="idClana" th:text="${id}"></p>
 </div>
+<table id="prikazTreninga">
+    <th>Naziv</th>
+    <th>Opis</th>
+    <th>Tip treninga</th>
+    <th>Trajanje</th>
+    <th>Izaberi</th>
+</table>
+<table id="prikazTermina">
+    <th>Cena</th>
+    <th>Raspored</th>
+    <th>Prijavi se</th>
+</table>
+<table id="prikazPrijavljenihTreninga">
+    <th>Naziv</th>
+    <th>Opis</th>
+    <th>Tip treninga</th>
+    <th>Trajanje</th>
+    <th>Otkazi prijavu</th>
+    <th>Odradi trening</th>
+</table>
+<table id="prikazOdradjenihTreninga">
+    <th>Naziv</th>
+    <th>Opis</th>
+    <th>Tip treninga</th>
+    <th>Trajanje</th>
+    <th>Oceni</th>
+</table>
 </body>
 </html>
