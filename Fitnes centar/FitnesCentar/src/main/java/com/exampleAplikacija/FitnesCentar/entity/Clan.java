@@ -37,6 +37,7 @@ public class Clan  implements Serializable {
     @JsonIgnore
     private Set<Trening> lista_prijavljenih_treninga=new HashSet<>();
     @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<Ocena> ocena=new HashSet<>();
 
 public Clan(){}

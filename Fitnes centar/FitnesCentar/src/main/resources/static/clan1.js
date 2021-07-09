@@ -1,6 +1,6 @@
 $(document).ready(function () {
 let id1=$("#idClana").hide();
-let id2=$("#prikazTermina").hide();
+
    $.ajax({
            type: "GET",
            url: "http://localhost:8080/sviTreninzi",
@@ -29,13 +29,13 @@ let id2=$("#prikazTermina").hide();
 });
 $(document).on('click', '.izaberi', function ()
 {
-let id2=$("#prikazTermina").show();
+
 let id3=$("#idClana").text();
 
 let idTreninga=this.dataset.id;
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/sviTerminiT/"+idTreninga+"/"+id3,
+        url: "http://localhost:8080/sviTerminiT/"+idTreninga,
         dataType: "json",
         success: function (response) {
             console.log("SUCCESS:\n", response);
@@ -59,6 +59,7 @@ let idTreninga=this.dataset.id;
     });
     $(document).on('click', '.prijava', function ()
     {
+
     let idTermina=this.dataset.id;
     let idClana=$("#idClana").text();
         $.ajax({
@@ -70,10 +71,12 @@ let idTreninga=this.dataset.id;
                if(uspesno)
                {
                alert("Uspesno ste se prijavili");
+               location.reload(true);
                 }
                 else
                 {
                 alert("Broj mesta je popunjen");
+                location.reload(true);
                 }
             },
             error: function (response) {
@@ -123,6 +126,7 @@ let idClana=$("#idClana").text();
         dataType: "json",
         success: function (response) {
             console.log("SUCCESS:\n", response);
+             location.reload(true);
 
         },
         error: function (response) {
@@ -132,6 +136,7 @@ let idClana=$("#idClana").text();
 });
 $(document).on('click', '.odradi', function ()
 {
+
 let idTreninga=this.dataset.id;
 let idClana=$("#idClana").text();
     $.ajax({
@@ -140,6 +145,7 @@ let idClana=$("#idClana").text();
         dataType: "json",
         success: function (response) {
             console.log("SUCCESS:\n", response);
+             location.reload(true);
 
         },
         error: function (response) {
@@ -185,10 +191,37 @@ let idClana=$("#idClana").text();
         dataType: "json",
         success: function (response) {
             console.log("SUCCESS:\n", response);
+             location.reload(true);
 
         },
         error: function (response) {
             console.log("ERROR:\n", response);
         }
     });
+});
+$(document).ready(function () {
+let idClana=$("#idClana").text();
+   $.ajax({
+           type: "GET",
+           url: "http://localhost:8080/sviOcenjeniTreninzi/"+idClana,
+           dataType: "json",
+           success: function (response) {
+               console.log("SUCCESS:\n", response);
+
+               for (let trening of response) {
+                                               let row = "<tr>";
+                                               row += "<td>" + trening.naziv + "</td>";
+                                               row += "<td>" + trening.opis + "</td>";
+                                              row += "<td>" + trening.tip_treninga + "</td>";
+                                              row += "<td>" + trening.trajanje + "</td>";
+
+                                               row += "</tr>";
+                                               $('#prikazOcenjenihTreninga').append(row);
+                                           }
+           },
+           error: function (response) {
+               console.log("ERROR:\n", response);
+           }
+
+       });
 });

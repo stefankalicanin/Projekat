@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b719e5fa-8e0b-4853-9e39-163ec6a3231f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TerminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/DTO/LogInTrenera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/LogInTRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/OcenaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/service/LogInTreneraService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/service/TerminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/clan1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TrenerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TrenerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TreningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/controller/TreningController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Clan.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Clan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Ocena.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Ocena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Sala.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Sala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Termin.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Termin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Trener.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Trener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Trening.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/entity/Trening.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/ulogovanKorisnik.css" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/ulogovanKorisnik.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/OcenaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/OcenaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/TreningRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/repository/TreningRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/service/TreningService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/java/com/exampleAplikacija/FitnesCentar/service/TreningService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/clan1.js" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/clan1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/pregled_treninga.js" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/static/pregled_treninga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/pregled_treninga.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/pregled_treninga.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/ulogovanClan.html" beforeDir="false" afterPath="$PROJECT_DIR$/FitnesCentar/src/main/resources/templates/ulogovanClan.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

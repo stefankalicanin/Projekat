@@ -3,6 +3,7 @@ package com.exampleAplikacija.FitnesCentar.controller;
 import com.exampleAplikacija.FitnesCentar.entity.*;
 import com.exampleAplikacija.FitnesCentar.entity.DTO.FCDTO;
 import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInKorisnika;
+import com.exampleAplikacija.FitnesCentar.entity.DTO.LogInTrenera;
 import com.exampleAplikacija.FitnesCentar.entity.DTO.TrenerDTO;
 import com.exampleAplikacija.FitnesCentar.repository.*;
 import com.exampleAplikacija.FitnesCentar.service.FitnesCentarService;
@@ -21,6 +22,8 @@ public class AdminController {
     private final FitnesCentarService fitnesCentarService;
     @Autowired
     public LogInRepository repo;
+    @Autowired
+    public LogInTRepository repot;
     @Autowired
     public SalaRepository srepo;
     @Autowired
@@ -62,9 +65,10 @@ public class AdminController {
         String ime=trener.getKorisnicko_ime();
         String lozinka=trener.getLozinka();
         String uloga="trener";
-        LogInKorisnika korisnik=new LogInKorisnika(ime,lozinka,"trener","da");
+        LogInTrenera trener1=new LogInTrenera(ime,lozinka,"trener","da");
         trener.setAktivan("da");
         trepo.save(trener);
+        repot.save(trener1);
 
 
         return "redirect:/Admin.html";

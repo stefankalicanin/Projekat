@@ -19,7 +19,7 @@ public class Termin implements Serializable {
     @Column
     private String cena;
 
-    @ManyToMany(mappedBy = "termini")
+    @ManyToMany(mappedBy = "termini",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Sala> sale=new HashSet<>();
 

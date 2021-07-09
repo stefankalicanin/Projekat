@@ -19,5 +19,6 @@ VALUES('trening3','nemaopisa3','tezaktrening3','158500');
 
 
 
+
 INSERT INTO ADMINISTRATOR(korisnicko_ime,lozinka,ime,prezime,kontakt_telefon,email,datum_rodjenja,uloga,aktivan)
 VALUES('Stefan13','lozinka13','Stefan','Kalicanin','063477126','skstefankalicanin@gmail.com','13.06.2000',0,'da');

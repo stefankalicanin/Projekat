@@ -42,166 +42,6 @@ $(document).ready(function (){
 
     });
 });
-
-$(document).on("submit","#pretraziPoNazivu", function (event) {
-  event.preventDefault();
-     let kljucnaRec = $("#naziv").val();
-     let treningDiv = $("#trening");
-         treningDiv.hide();
-         let prikazDiv = $("#prikaz");
-         prikazDiv.show();
-
-   $.ajax({
-           type: "GET",
-           url: "http://localhost:8080/pretraziPoNazivu/" +kljucnaRec,
-           dataType: "json",
-           success: function (response) {
-               console.log("SUCCESS:\n", response);
-               for (let trening of response) {
-                    let row = "<tr>";
-                   row += "<td>" + trening.naziv + "</td>";
-                   row += "<td>" + trening.opis + "</td>";
-                  row += "<td>" + trening.tip_treninga + "</td>";
-                  row += "<td>" + trening.trajanje + "</td>";
-
-                   row += "</tr>";
-                   $('#prikaz').append(row);
-               }
-           },
-           error: function (response) {
-               console.log("ERROR:\n", response);
-           }
-       });
-   });
- $(document).on("submit","#pretraziPoOpisu", function (event) {
-     event.preventDefault();
-        let kljucnaRec = $("#opis").val();
-         let treningDiv = $("#trening");
-                 treningDiv.hide();
-                 let prikazDiv = $("#prikaz");
-                 prikazDiv.show();
-
-      $.ajax({
-              type: "GET",
-              url: "http://localhost:8080/pretraziPoOpisu/" +kljucnaRec,
-              dataType: "json",
-              success: function (response) {
-                  console.log("SUCCESS:\n", response);
-                  for (let trening of response) {
-
-                       let row = "<tr>";
-                      row += "<td>" + trening.naziv + "</td>";
-                      row += "<td>" + trening.opis + "</td>";
-                     row += "<td>" + trening.tip_treninga + "</td>";
-                     row += "<td>" + trening.trajanje + "</td>";
-
-                      row += "</tr>";
-                      $('#prikaz').append(row);
-                  }
-
-
-              },
-              error: function (response) {
-                  console.log("ERROR:\n", response);
-              }
-          });
-      });
- $(document).on("submit","#pretraziPoTipuTreninga", function (event) {
-      event.preventDefault();
-         let kljucnaRec = $("#tip_treninga").val();
-          let treningDiv = $("#trening");
-                  treningDiv.hide();
-                  let prikazDiv = $("#prikaz");
-                  prikazDiv.show();
-
-       $.ajax({
-               type: "GET",
-               url: "http://localhost:8080/pretraziPoTipuTreninga/" +kljucnaRec,
-               dataType: "json",
-               success: function (response) {
-                   console.log("SUCCESS:\n", response);
-                   for (let trening of response) {
-                       let row = "<tr>";
-                       row += "<td>" + trening.naziv + "</td>";
-                       row += "<td>" + trening.opis + "</td>";
-                      row += "<td>" + trening.tip_treninga + "</td>";
-                      row += "<td>" + trening.trajanje + "</td>";
-
-                       row += "</tr>";
-                       $('#prikaz').append(row);
-                   }
-
-               },
-               error: function (response) {
-                   console.log("ERROR:\n", response);
-               }
-           });
-       });
- $(document).on("submit","#pretraziPoTrajanju", function (event) {
-      event.preventDefault();
-         let kljucnaRec = $("#trajanje").val();
-          let treningDiv = $("#trening");
-                  treningDiv.hide();
-                  let prikazDiv = $("#prikaz");
-                  prikazDiv.show();
-
-       $.ajax({
-               type: "GET",
-               url: "http://localhost:8080/pretraziPoTrajanju/" +kljucnaRec,
-               dataType: "json",
-               success: function (response) {
-                   console.log("SUCCESS:\n", response);
-                   for (let trening of response) {
-                       let row = "<tr>";
-                       row += "<td>" + trening.naziv + "</td>";
-                       row += "<td>" + trening.opis + "</td>";
-                      row += "<td>" + trening.tip_treninga + "</td>";
-                      row += "<td>" + trening.trajanje + "</td>";
-
-                       row += "</tr>";
-                       $('#prikaz').append(row);
-                   }
-
-               },
-               error: function (response) {
-                   console.log("ERROR:\n", response);
-               }
-           });
-       });
-
-
-$(document).on("submit","#pretraziPoOpisu", function (event) {
-     event.preventDefault();
-        let kljucnaRec = $("#opis").val();
-
-
-      $.ajax({
-              type: "GET",
-              url: "http://localhost:8080/pretraziPoOpisu/" +kljucnaRec,
-              dataType: "json",
-              success: function (response) {
-                  console.log("SUCCESS:\n", response);
-                  for (let trening of response) {
-
-                       let row = "<tr>";
-                      row += "<td>" + trening.naziv + "</td>";
-                      row += "<td>" + trening.opis + "</td>";
-                     row += "<td>" + trening.tip_treninga + "</td>";
-                     row += "<td>" + trening.trajanje + "</td>";
-                     row += "<td>" + trening.cena + "</td>";
-                      row += "</tr>";
-                      $('#prikaz').append(row);
-                  }
-
-
-              },
-              error: function (response) {
-                  console.log("ERROR:\n", response);
-              }
-          });
-      });
-
-
       $(document).on('click', '.sNaziv', function () {
       let treningDiv = $("#trening");
                                treningDiv.hide();
@@ -330,3 +170,47 @@ $('#sortiranjePoNazivu').hide();
                               });
                           });
 
+   $(document).on("submit", "#pretrazi", function (event) {
+          event.preventDefault();
+
+
+         let kljucnaRec1=$("#naziv").val();
+           let kljucnaRec2=$("#opis").val();
+           let kljucnaRec3=$("#tip_treninga").val();
+           let kljucnaRec4=$("#trajanje").val();
+
+
+let data={
+       kljucnaRec1: kljucnaRec1,
+       kljucnaRec2: kljucnaRec2,
+        kljucnaRec3: kljucnaRec3,
+        kljucnaRec4:kljucnaRec4
+    }
+
+for (obrisi in data){
+    if(data[obrisi]=="") delete data[obrisi];
+}
+
+          $.ajax({
+              type: "GET",
+              url: "http://localhost:8080/pretraziPoVise",
+              data: data,
+              dataType: "json",
+              contentType: "application/json",
+              success: function (response) {
+                  console.log(response);
+                 for(let trening of response)
+                 {
+                 let naziv=trening.naziv;
+                 let opis=trening.opis;
+                 let tip=trening.tip_treninga;
+                 let trajanje=trening.trajanje;
+                 alert("Naziv:"+naziv+"\n"+"Opis:"+opis+"\n"+"Tip:"+tip+"\n"+"Trajanje:"+trajanje);
+                 }
+              },
+              error: function () {
+                  alert("Greška!");
+              }
+          });
+
+      });

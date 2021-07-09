@@ -21,31 +21,13 @@ public class TreningService {
         List<Trening> treninzi = this.treningRepository.findAll();
         return treninzi;
     }
-    public List<Trening> pretragaTreningaPoNazivu(String kljucnaRec) {
-        if (kljucnaRec != null) {
-            return treningRepository.pretraziPoNazivu(kljucnaRec);
-        }
-        return treningRepository.findAll();
-    }
-    public List<Trening> pretragaTreningaPoOpisu(String kljucnaRec) {
-        if (kljucnaRec != null) {
-            return treningRepository.pretraziPoOpisu(kljucnaRec);
-        }
-        return treningRepository.findAll();
-    }
-    public List<Trening> pretragaTreningaPoTipu(String kljucnaRec) {
-        if (kljucnaRec != null) {
-            return treningRepository.pretraziPoTipuTreninga(kljucnaRec);
-        }
-        return treningRepository.findAll();
-    }
-    public List<Trening> pretragaTreningaPoTrajanju(String kljucnaRec) {
-        if (kljucnaRec != null) {
-            return treningRepository.pretraziPoTrajanju(kljucnaRec);
-        }
-        return treningRepository.findAll();
-    }
 
+    public List<Trening> pretragaPoVise(String kljucnaRec1,String kljucnaRec2,String kljucnaRec3,String kljucnaRec4) {
+
+            return treningRepository.pretraziPoVise(kljucnaRec1,kljucnaRec2,kljucnaRec3,kljucnaRec4);
+
+
+    }
 
    public List<Trening> treninziSortiraniPoNazivu()
    {

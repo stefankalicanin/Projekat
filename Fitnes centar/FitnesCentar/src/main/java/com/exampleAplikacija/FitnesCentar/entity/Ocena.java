@@ -1,5 +1,7 @@
 package com.exampleAplikacija.FitnesCentar.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
@@ -10,8 +12,10 @@ public class Ocena implements Serializable {
     @Column
     private String ocena;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnore
     private Clan clan;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnore
     private Trening trening;
     public Ocena (){}
 

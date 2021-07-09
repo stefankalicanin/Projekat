@@ -8,15 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface TreningRepository extends JpaRepository<Trening,Long> {
-    @Query("SELECT t FROM Trening t WHERE t.naziv=?1")
-            public List<Trening> pretraziPoNazivu(String kljucnaRec);
-    @Query("SELECT t FROM Trening t WHERE t.opis=?1")
-    public List<Trening> pretraziPoOpisu(String kljucnaRec);
-    @Query("SELECT t FROM Trening t WHERE t.tip_treninga=?1")
-    public List<Trening> pretraziPoTipuTreninga(String kljucnaRec);
-    @Query("SELECT t FROM Trening t WHERE t.trajanje=?1")
-    public List<Trening> pretraziPoTrajanju(String kljucnaRec);
-
+    @Query("SELECT t FROM Trening t WHERE (?1=null or t.naziv=?1) AND (?2=null or t.opis=?2) AND (?3=null or t.tip_treninga=?3) AND (?4=null or t.trajanje=?4)")
+    public List<Trening> pretraziPoVise(String kljucnaRec1,String kljucnaRec2,String kljucnaRec3,String kljucnaRec4);
 
 
 }

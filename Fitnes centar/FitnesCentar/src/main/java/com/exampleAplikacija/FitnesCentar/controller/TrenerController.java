@@ -86,7 +86,7 @@ public class TrenerController {
     public ResponseEntity<Void> ukloniTrenera(@PathVariable Long id)
     {
         this.trenerService.delete(id);
-       repo.deleteById(id);
+       repot.deleteById(id);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

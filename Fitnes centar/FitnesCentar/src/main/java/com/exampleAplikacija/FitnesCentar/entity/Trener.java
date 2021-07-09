@@ -31,10 +31,10 @@ public class Trener  implements Serializable {
     @Column
     private String aktivan="ne";
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JsonIgnore
     private FitnesCentar FF;
-    @ManyToMany(mappedBy = "lista_trenera")
+    @ManyToMany(mappedBy = "lista_trenera",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Trening> lista_treninga = new HashSet<>();
     public Trener(){}

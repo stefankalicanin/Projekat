@@ -27,20 +27,20 @@ public class Trening {
 
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "trening_trener",
             joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "trener_id", referencedColumnName = "id"))
     @JsonIgnore
     private Set<Trener> lista_trenera=new HashSet<>();
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "odradjentrening_clan",
             joinColumns = @JoinColumn(name = "treningodradjen_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"))
     @JsonIgnore
     private Set<Clan> odradjeni_treninzi = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "prijavljentrening_clan",
             joinColumns = @JoinColumn(name = "treningprijavljen_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"))

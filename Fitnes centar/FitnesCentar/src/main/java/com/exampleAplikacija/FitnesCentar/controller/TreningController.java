@@ -14,10 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -70,30 +67,10 @@ public class TreningController {
         List<Trening> listaTreninga = this.treningService.treninziSortiraniPoTrajanju();
         return new ResponseEntity<>(listaTreninga, HttpStatus.OK);
     }
-    @GetMapping(value = "/pretraziPoNazivu/{kljucnaRec}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Trening>> pretraziTreningPoNazivu(@PathVariable("kljucnaRec") String kljucnaRec) {
-       List<Trening> trening=this.treningService.pretragaTreningaPoNazivu(kljucnaRec);
 
-
-        return new ResponseEntity<>(trening, HttpStatus.OK);
-    }
-    @GetMapping(value = "/pretraziPoOpisu/{kljucnaRec}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Trening>> pretraziTreningPoOpisu(@PathVariable("kljucnaRec") String kljucnaRec) {
-        List<Trening> trening=this.treningService.pretragaTreningaPoOpisu(kljucnaRec);
-
-
-        return new ResponseEntity<>(trening, HttpStatus.OK);
-    }
-    @GetMapping(value = "/pretraziPoTipuTreninga/{kljucnaRec}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Trening>> pretraziTreningPoTipu(@PathVariable("kljucnaRec") String kljucnaRec) {
-        List<Trening> trening=this.treningService.pretragaTreningaPoTipu(kljucnaRec);
-
-
-        return new ResponseEntity<>(trening, HttpStatus.OK);
-    }
-    @GetMapping(value = "/pretraziPoTrajanju/{kljucnaRec}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Trening>> pretraziTreningPoTrajanju(@PathVariable("kljucnaRec") String kljucnaRec) {
-        List<Trening> trening=this.treningService.pretragaTreningaPoTrajanju(kljucnaRec);
+    @GetMapping(value = "/pretraziPoVise", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> pretraziTreningPoTrajanju(@RequestParam(required = false) String kljucnaRec1, @RequestParam(required = false) String kljucnaRec2,@RequestParam(required = false) String kljucnaRec3,@RequestParam(required = false) String kljucnaRec4) {
+        List<Trening> trening=this.treningService.pretragaPoVise(kljucnaRec1,kljucnaRec2,kljucnaRec3,kljucnaRec4);
 
 
         return new ResponseEntity<>(trening, HttpStatus.OK);
@@ -114,8 +91,8 @@ public class TreningController {
         this.treningrepo.save(trening);
         return new ResponseEntity<>(termin, HttpStatus.CREATED);
     }
-    @GetMapping(value = "/sviTerminiT/{id}/{id1}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<Termin>> sveSale(@PathVariable Long id,@PathVariable Long id1) {
+    @GetMapping(value = "/sviTerminiT/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<Termin>> sviTermini(@PathVariable Long id) {
         Trening trening=this.treningService.get(id);
         Set<Termin> termini=new HashSet<>();
        termini=trening.getRaspored_odrzavanja_treninga();
@@ -147,6 +124,17 @@ public class TreningController {
         Set<Trening> trening=new HashSet<>();
         trening=clan.getLista_odradjenih_treninga();
         return new ResponseEntity<>(trening, HttpStatus.OK);
+    }
+    @GetMapping(value = "/sviOcenjeniTreninzi/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<Trening>> ocenjeniTreninzi(@PathVariable Long id) {
+
+   List<Ocena> ocene=this.orepo.ocene();
+   Set<Trening> t=new HashSet<>();
+   for(Ocena ocena:ocene)
+   {
+       t.add(ocena.getTrening());
+   }
+        return new ResponseEntity<>(t, HttpStatus.OK);
     }
     @PostMapping("/otkaziTrening/{id}/{id1}")
     public ResponseEntity<Void> otkaziTrening(@PathVariable Long id,@PathVariable Long id1)
